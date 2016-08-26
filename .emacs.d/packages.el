@@ -53,6 +53,7 @@
         "~/vcs/github.com/AndreaCrotti/yasnippet-snippets"
         ))
 (define-key yas-minor-mode-map (kbd "\t") nil)
+(define-key yas-minor-mode-map [(tab)] nil)
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "C-M-y") 'yas-expand)
 
@@ -70,4 +71,5 @@
 
 ;; graphviz-dot-mode customizations
 (require 'graphviz-dot-mode)
-(setq graphviz-dot-auto-indent-on-semi nil)
+(setq-default graphviz-dot-auto-indent-on-semi nil)
+(setq-default graphviz-dot-indent-width 4)

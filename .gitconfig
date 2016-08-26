@@ -3,6 +3,6 @@
 	email = chris.simpkins@gmail.com
 [core]
 	editor = emacs
-	excludesfile = /home/chris/.gitignore
+	excludesfile = ~/.gitignore
 [push]
 	default = simple

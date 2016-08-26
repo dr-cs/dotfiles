@@ -182,3 +182,6 @@ pythontex-files-*/
 # endfloat
 *.ttt
 *.fff
+
+# Python
+/__pycache__/
