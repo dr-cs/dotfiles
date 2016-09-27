@@ -26,7 +26,7 @@
 (use-package multiple-cursors :demand)
 (use-package graphviz-dot-mode :demand)
 (use-package magit :demand)
-(use-package git-gutter-fringe+ :demand)
+(use-package fill-column-indicator :demand)
 
 (use-package ensime :pin melpa-stable)
 
@@ -43,6 +43,13 @@
 
 (require 'git-gutter-fringe+)
 (if window-system (global-git-gutter+-mode t))
+
+(require 'fill-column-indicator)
+(setq fci-rule-column 80)
+(add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'java-mode-hook 'fci-mode)
+(add-hook 'scala-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook 'fci-mode)
 
 (require 'yasnippet)
 (setq yas-snippet-dirs
