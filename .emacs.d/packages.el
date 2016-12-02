@@ -26,8 +26,16 @@
 (use-package multiple-cursors :demand)
 (use-package graphviz-dot-mode :demand)
 (use-package magit :demand)
+(use-package git-gutter-fringe+ :demand)
 (use-package fill-column-indicator :demand)
-
+(use-package projectile
+  :demand
+  :init   (setq projectile-use-git-grep t)
+  :config (projectile-global-mode t)
+  :bind   (("s-f" . projectile-find-file)
+           ("s-F" . projectile-grep)))
+(use-package all-the-icons :demand)
+(use-package neotree :demand)
 (use-package ensime :pin melpa-stable)
 
 (require 'ensime)
@@ -78,5 +86,38 @@
 
 ;; graphviz-dot-mode customizations
 (require 'graphviz-dot-mode)
+
 (setq-default graphviz-dot-auto-indent-on-semi nil)
 (setq-default graphviz-dot-indent-width 4)
+(setq graphviz-dot-auto-indent-on-semi nil)
+
+;; neotree customizations
+(require 'neotree)
+
+(defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+          (file-name (buffer-file-name)))
+      (if project-dir
+          (progn
+            (neotree-toggle)
+            (if (neo-global--window-exists-p)
+                ;; Result of toggle was to show neotree window
+                (progn
+                  (neotree-dir project-dir)
+                  (neotree-find file-name)
+                  (set-frame-width (selected-frame)
+                                   (+ neo-window-width
+                                      (frame-width (selected-frame)))))
+              ;; Result of toggle was to hide neotree window
+              (set-frame-width (selected-frame)
+                               (- (frame-width (selected-frame))
+                                  neo-window-width)))))
+        (message "Could not find git project root.")))
+
+(global-set-key [f8] 'neotree-project-dir)
+(setq neo-smart-open t)
+(setq neo-window-width 30)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+

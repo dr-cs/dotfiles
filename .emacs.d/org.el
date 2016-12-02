@@ -7,12 +7,14 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 (setq-default org-support-shift-select 1)
+(setq org-descriptive-links nil)
 
 ;; Graphviz dot language
 (org-babel-do-load-languages
      'org-babel-load-languages
      '((dot . t)
-       (python . t)))
+       (python . t)
+       (ditaa . t)))
 
 (require 'ox-latex)
 (unless (boundp 'org-latex-classes)
@@ -36,3 +38,4 @@
 
 (setq org-latex-listings t)
 (setq org-confirm-babel-evaluate nil)
+(setq org-hierarchical-todo-statistics nil)

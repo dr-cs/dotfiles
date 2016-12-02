@@ -12,7 +12,7 @@ echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
 echo 'XKBOPTIONS="caps:ctrl_modifier"' >> /etc/default/keyboard
 
 # Requires xserver-xorg-input-libinput, so be sure to run install-ubuntu.sh first
-echo 'Section "InputClass"' >>
+echo 'Section "InputClass"' >> /usr/share/X11/xorg.conf.d/99-libinput.conf
 echo '    Identifier "libinput"' >> /usr/share/X11/xorg.conf.d/99-libinput.conf
 echo '    Driver "libinput"' >> /usr/share/X11/xorg.conf.d/99-libinput.conf
 echo '    MatchDevicePath "/dev/input/event*"' >> /usr/share/X11/xorg.conf.d/99-libinput.conf
