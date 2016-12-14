@@ -46,7 +46,6 @@
            (scale-factor (progn (string-match "'eDP1': \\([0-9]+\\)[,\}]"
                                               dconf-entry)
                                 (string-to-int (match-string 1 dconf-entry))))
-           ;; text-width of 88 to make room for gutter and fringes
            (text-width (truncate (/ desired-width (/ scale-factor 8.0))))
            (text-height (truncate (/ desired-height (/ scale-factor 8.0)))))
       (message "set-frame-size is %dx%d, scale-factor is %s"

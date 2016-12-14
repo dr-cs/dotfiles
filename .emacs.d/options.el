@@ -62,7 +62,7 @@
 ;; Wider than 80 for general editing, e.g., org-mode tables. Use
 ;; fill-column-indicator for programming modes
 (defvar-local desired-width 96)
-(defvar-local desired-height 50)
+(defvar-local desired-height 30)
 
 ;; Account for size of gutter and fringes
 (add-to-list 'initial-frame-alist '(width . desired-width))
@@ -70,6 +70,7 @@
 
 (defun my:window-setup-hook ()
   (when (and (string= system-type "gnu/linux") window-system)
+    (toggle-frame-maximized)
     (let* ((dconf-entry
             (shell-command-to-string
              "dconf read /com/ubuntu/user-interface/scale-factor"))
