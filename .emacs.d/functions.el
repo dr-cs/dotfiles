@@ -33,7 +33,7 @@
         (setq-default lecture-mode nil)))
   (setq-default lecture-mode (not lecture-mode))
   (if lecture-mode
-      (set-face-attribute 'default (selected-frame) :height 130)
+      (set-face-attribute 'default (selected-frame) :height 180)
     (set-face-attribute 'default (selected-frame) :height
                         my-default-text-height)))
 
