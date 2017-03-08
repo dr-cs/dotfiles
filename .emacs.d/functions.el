@@ -43,11 +43,11 @@
     (let* ((dconf-entry
             (shell-command-to-string
              "dconf read /com/ubuntu/user-interface/scale-factor"))
-           (scale-factor (progn (string-match "'eDP1': \\([0-9]+\\)[,\}]"
+           (scale-factor (progn (string-match "'[eD][FD]P1': \\([0-9]+\\)[,\}]"
                                               dconf-entry)
                                 (string-to-int (match-string 1 dconf-entry))))
-           (text-width (truncate (/ desired-width (/ scale-factor 8.0))))
-           (text-height (truncate (/ desired-height (/ scale-factor 8.0)))))
+           (text-width (truncate (/ 96 (/ scale-factor 8.0))))
+           (text-height (truncate (/ 50 (/ scale-factor 8.0)))))
       (message "set-frame-size is %dx%d, scale-factor is %s"
                text-width text-height scale-factor)
       (set-frame-size (selected-frame) text-width text-height))))
