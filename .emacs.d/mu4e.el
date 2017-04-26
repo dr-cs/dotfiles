@@ -1,7 +1,7 @@
 ;; mu4e configuration
 
 (when (string= system-type "darwin")
-  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e"))
+  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e"))
 
 (when (string= system-type "gnu/linux")
   (add-to-list 'load-path "/usr/share/emacs24/site-lisp/mu4e/"))
@@ -17,9 +17,13 @@
                               "Chris Simpkins\n"
                               "Mobile: 404-663-4946\n")
       message-send-mail-function 'smtpmail-send-it
-      smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
-      starttls-use-gnutls t
-      smtpmail-stream-type 'starttls
+      smtpmail-auth-credentials '(("smtp.gmail.com"
+                                   587
+                                   "chris.simpkins@gmail.com"
+                                   (shell-command-to-string
+                                    "keyring get gmail.com chris.simpkins@gmail.com")))
+      ;;starttls-use-gnutls t
+      smtpmail-stream-type 'tls
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-local-domain "gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
@@ -34,16 +38,45 @@
      (user-mail-address "chris.simpkins@gmail.com")
      (smtpmail-local-domain "gmail.com")
      (smtpmail-smtp-server "smtp.gmail.com")
+     (smtpmail-auth-credentials '(("smtp.gmail.com"
+                                   587
+                                   "chris.simpkins@gmail.com"
+                                   (shell-command-to-string
+                                    "keyring get gmail.com chris.simpkins@gmail.com"))))
      (mu4e-compose-signature (concat
                               "Chris Simpkins\n"
                               "Mobile: 404-663-4946\n")))
-    ("gatech"
-     (mu4e-sent-folder "/gatech/Sent Messages")
-     (mu4e-drafts-folder "/gatech/Drafts")
-     (mu4e-trash-folder "/gatech/Trash")
+    ("drcs"
+     (mu4e-sent-folder "/drcs/Sent Messages")
+     (mu4e-drafts-folder "/drcs/Drafts")
+     (mu4e-trash-folder "/drcs/Trash")
      (user-mail-address "chris.simpkins@gatech.edu")
      (smtpmail-local-domain "gatech.edu")
-     (smtpmail-smtp-server "mail.gatech.edu")
+     (smtpmail-smtp-server "sccl.cc.gatech.edu")
+     (smtpmail-auth-credentials '(("sccl.cc.gatech.edu"
+                                   465
+                                   "cs257"
+                                   (shell-command-to-string
+                                    "keyring get gatech.edu cs257"))))
+     (mu4e-compose-signature (concat
+                              "Chris Simpkins, Lecturer\n"
+                              "College of Computing, Room 133\n"
+                              "GT Scuba Instructor, PADI # 347984\n"
+                              "Georgia Institute of Technology\n"
+                              "Mobile: 404-663-4946\n"
+                              "http://www.cc.gatech.edu/~simpkins/\n")))
+    ("o365"
+     (mu4e-sent-folder "/o365/Sent Messages")
+     (mu4e-drafts-folder "/o365/Drafts")
+     (mu4e-trash-folder "/o365/Trash")
+     (user-mail-address "simpkins@cc.gatech.edu")
+     (smtpmail-local-domain "office365.com")
+     (smtpmail-smtp-server "smtp.office365.com")
+     (smtpmail-auth-credentials '(("smtp.office365.com"
+                                   587
+                                   "cs257@gatech.edu"
+                                   (shell-command-to-string
+                                    "keyring get gatech.edu cs257"))))
      (mu4e-compose-signature (concat
                               "Chris Simpkins, Lecturer\n"
                               "College of Computing, Room 133\n"
@@ -58,9 +91,17 @@
      (user-mail-address "chris@proscuba.training")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
+     (smtpmail-auth-credentials '(("sub4.mail.dreamhost.com"
+                                   587
+                                   "chris@proscuba.training"
+                                   (shell-command-to-string
+                                    "keyring get proscuba.training chris@proscuba.training"))))
      (mu4e-compose-signature (concat
-                              "Chris Simpkins\n"
-                              "Mobile: 404-663-4946\n"
+                              "Chris Simpkins"
+                              "PADI Master Scuba Diver Trainer 347984"
+                              "SSI Divemaster Instructor 72876"
+                              "DAN DEMP, DFA Pro Instructor 15550"
+                              "Tel. 678-827-FINS (3467)"
                               "http://proscuba.training/\n")))
     ("chris@simpkins.org"
      (mu4e-sent-folder "/chris@simpkins.org/Sent Messages")
@@ -69,6 +110,11 @@
      (user-mail-address "chris@simpkins.org")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
+     (smtpmail-auth-credentials '(("sub4.mail.dreamhost.com"
+                                   587
+                                   "management@2061kinridgetrail.com"
+                                   (shell-command-to-string
+                                    "keyring get 2061kinridgetrail.com management@2061kinridgetrail.com"))))
      (mu4e-compose-signature (concat
                               "Chris Simpkins\n"
                               "chris@simpkins.org\n")))
@@ -94,7 +140,8 @@
 
 (setq mu4e-maildir-shortcuts
       '( ("/gmail/Inbox"                            . ?g)
-         ("/gatech/Inbox"                           . ?t)
+         ("/drcs/Inbox"                             . ?d)
+         ("/o365/Inbox"                             . ?o)
          ("/chris@simpkins.org/Inbox"               . ?s)
          ("/chris@proscuba.training/Inbox"          . ?p)
          ("/management@2061kinridgetrail.com/Inbox" . ?k)))
@@ -185,7 +232,7 @@
                ((string-match "chris.simpkins@gmail.com" from)
                 "gmail")
                ((string-match "chris.simpkins@gatech.edu" from)
-                "gatech")
+                "drcs")
                ((string-match "chris@proscuba.training" from)
                 "prost")
                ((string-match "chris@simpkins.org" from)

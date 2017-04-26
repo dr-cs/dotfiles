@@ -22,7 +22,8 @@ brew install pandoc
 brew tap railwaycat/emacsmacport
 brew install emacs-mac
 brew linkapps emacs-mac
-brew install mu --with-emacs --HEAD
+EMACS=$(which emacs) brew install mu --with-emacs
+brew install gnutls
 
 # Programming languages
 brew cask install java

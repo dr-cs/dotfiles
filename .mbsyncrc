@@ -3,19 +3,14 @@ Sync all
 Create Both
 CopyArrivalDate yes
 
-
 ##############################################################################
 IMAPAccount gmail
 Host imap.gmail.com
 User chris.simpkins@gmail.com
-# Create with: gpg2 --output .authinfo.gpg --symmetric .authinfo
-PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/^machine imap.gmail.com/ {print $8}'"
+PassCmd "keyring get gmail.com chris.simpkins@gmail.com"
 AuthMechs LOGIN
 SSLType IMAPS
-SSLVersions SSLv3
-CertificateFile ~/certs/gmail.crt
-CertificateFile ~/certs/google.crt
-CertificateFile ~/certs/Equifax.crt
+CertificateFile /etc/ssl/cert.pem
 
 IMAPStore gmail-imap
 Account gmail
@@ -34,29 +29,54 @@ Patterns *
 SyncState *
 
 ##############################################################################
-IMAPAccount gatech
-Host mail.gatech.edu
-User gtg034t
-# Create with: gpg2 --output .authinfo.gpg --symmetric .authinfo
-PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/^machine mail.gatech.edu/ {print $8}'"
+IMAPAccount drcs
+Host imap.gmail.com
+User gtdrcs@gmail.com
+PassCmd "keyring get gmail.com gtdrcs@gmail.com"
 AuthMechs LOGIN
 SSLType IMAPS
-SSLVersions SSLv3
-CertificateFile ~/certs/mail.gatech.edu.crt
+CertificateFile /etc/ssl/cert.pem
 
-IMAPStore gatech-imap
-Account gatech
+IMAPStore drcs-imap
+Account drcs
 
-MaildirStore gatech-local
-# you have to manually create ~/Maildir/gatech/
-Path ~/Maildir/gatech/
-# Inbox required, even if one specifies  :gatech-local:INBOX
+MaildirStore drcs-local
+# you have to manually create ~/Maildir/drcs/
+Path ~/Maildir/drcs/
+# Inbox required, even if one specifies  :drcs-local:INBOX
 # otherwise it goes in ~/Maildir
-Inbox ~/Maildir/gatech/Inbox
+Inbox ~/Maildir/drcs/Inbox
 
-Channel gatech
-Master :gatech-imap:
-Slave :gatech-local:
+Channel drcs
+Master :drcs-imap:
+Slave :drcs-local:
+Patterns *
+SyncState *
+
+
+##############################################################################
+IMAPAccount o365
+Host outlook.office365.com
+User cs257@gatech.edu
+PassCmd "keyring get gatech.edu cs257"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/cert.pem
+#CertificateFile ~/certs/mail.gatech.edu.crt
+
+IMAPStore o365-imap
+Account o365
+
+MaildirStore o365-local
+# you have to manually create ~/Maildir/o365/
+Path ~/Maildir/o365/
+# Inbox required, even if one specifies  :o365-local:INBOX
+# otherwise it goes in ~/Maildir
+Inbox ~/Maildir/o365/Inbox
+
+Channel o365
+Master :o365-imap:
+Slave :o365-local:
 Patterns *
 SyncState *
 
@@ -64,14 +84,14 @@ SyncState *
 IMAPAccount chris@simpkins.org
 Host sub4.mail.dreamhost.com
 User chris@simpkins.org
-PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/chris@simpkins.org/ {print $8}'"
+PassCmd "keyring get simpkins.org chris"
 AuthMechs LOGIN
 SSLType IMAPS
-SSLVersions SSLv3
-CertificateFile ~/certs/mail.dreamhost.com.crt
-CertificateFile ~/certs/dreamhost-ca.crt
-CertificateFile ~/certs/usertrust.crt
-CertificateFile ~/certs/addtrust.crt
+CertificateFile /etc/ssl/cert.pem
+# CertificateFile ~/certs/mail.dreamhost.com.crt
+# CertificateFile ~/certs/dreamhost-ca.crt
+# CertificateFile ~/certs/usertrust.crt
+# CertificateFile ~/certs/addtrust.crt
 
 IMAPStore chris@simpkins.org-imap
 Account chris@simpkins.org
@@ -93,14 +113,14 @@ SyncState *
 IMAPAccount prost
 Host sub4.mail.dreamhost.com
 User chris@proscuba.training
-PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/chris@proscuba.training/ {print $8}'"
+PassCmd "keyring get proscuba.training chris"
 AuthMechs LOGIN
 SSLType IMAPS
-SSLVersions SSLv3
-CertificateFile ~/certs/mail.dreamhost.com.crt
-CertificateFile ~/certs/dreamhost-ca.crt
-CertificateFile ~/certs/usertrust.crt
-CertificateFile ~/certs/addtrust.crt
+CertificateFile /etc/ssl/cert.pem
+# CertificateFile ~/certs/mail.dreamhost.com.crt
+# CertificateFile ~/certs/dreamhost-ca.crt
+# CertificateFile ~/certs/usertrust.crt
+# CertificateFile ~/certs/addtrust.crt
 
 IMAPStore prost-imap
 Account prost
@@ -122,14 +142,14 @@ SyncState *
 IMAPAccount management@2061kinridgetrail.com
 Host sub4.mail.dreamhost.com
 User management@2061kinridgetrail.com
-PassCmd "gpg2 --batch --passphrase-file ~/.gnupg/authinfopp -qd ~/.authinfo.gpg | awk '/management@2061kinridgetrail.com/ {print $8}'"
+PassCmd "keyring get 2061kinridgetrail.com management"
 AuthMechs LOGIN
 SSLType IMAPS
-SSLVersions SSLv3
-CertificateFile ~/certs/mail.dreamhost.com.crt
-CertificateFile ~/certs/dreamhost-ca.crt
-CertificateFile ~/certs/usertrust.crt
-CertificateFile ~/certs/addtrust.crt
+CertificateFile /etc/ssl/cert.pem
+# CertificateFile ~/certs/mail.dreamhost.com.crt
+# CertificateFile ~/certs/dreamhost-ca.crt
+# CertificateFile ~/certs/usertrust.crt
+# CertificateFile ~/certs/addtrust.crt
 
 IMAPStore management@2061kinridgetrail.com-imap
 Account management@2061kinridgetrail.com

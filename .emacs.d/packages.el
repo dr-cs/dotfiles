@@ -30,6 +30,7 @@
 (use-package fill-column-indicator :demand)
 (use-package projectile
   :demand
+  :pin melpa-stable
   :init   (setq projectile-use-git-grep t)
   :config (projectile-global-mode t)
   :bind   (("s-f" . projectile-find-file)
@@ -82,7 +83,7 @@
 (yas-global-mode 1)
 
 (add-hook 'after-init-hook 'global-company-mode)
-(setq-default company-idle-delay 2)
+(setq-default company-idle-delay 1)
 
 ;; graphviz-dot-mode customizations
 (require 'graphviz-dot-mode)
@@ -120,4 +121,3 @@
 (setq neo-smart-open t)
 (setq neo-window-width 30)
 (setq projectile-switch-project-action 'neotree-projectile-action)
-
