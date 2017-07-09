@@ -20,10 +20,10 @@ brew install pandoc
 # This is the best emacs for Mac OSX.
 # See https://github.com/railwaycat/homebrew-emacsmacport
 brew tap railwaycat/emacsmacport
-brew install emacs-mac
-brew linkapps emacs-mac
+brew cask install emacs-mac
 EMACS=$(which emacs) brew install mu --with-emacs
 brew install gnutls
+brew install gnupg2 --with-gnupg21
 
 # Programming languages
 brew cask install java
