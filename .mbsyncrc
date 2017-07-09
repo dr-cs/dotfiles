@@ -111,16 +111,12 @@ SyncState *
 
 ##############################################################################
 IMAPAccount prost
-Host sub4.mail.dreamhost.com
-User chris@proscuba.training
-PassCmd "keyring get proscuba.training chris"
+Host imap.gmail.com
+User proscubatraining@gmail.com
+PassCmd "keyring get gmail.com proscubatraining@gmail.com"
 AuthMechs LOGIN
 SSLType IMAPS
 CertificateFile /etc/ssl/cert.pem
-# CertificateFile ~/certs/mail.dreamhost.com.crt
-# CertificateFile ~/certs/dreamhost-ca.crt
-# CertificateFile ~/certs/usertrust.crt
-# CertificateFile ~/certs/addtrust.crt
 
 IMAPStore prost-imap
 Account prost
