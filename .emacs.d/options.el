@@ -70,7 +70,7 @@
     (let* ((dconf-entry
             (shell-command-to-string
              "dconf read /com/ubuntu/user-interface/scale-factor"))
-           (scale-factor (progn (string-match "'[eD][FD]P1': \\([0-9]+\\)[,\}]"
+           (scale-factor (progn (string-match "'[eD][FD]P-*1': \\([0-9]+\\)[,\}]"
                                               dconf-entry)
                                 (string-to-int (match-string 1 dconf-entry))))
            (text-width (truncate (/ 96 (/ scale-factor 8.0))))
