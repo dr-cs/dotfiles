@@ -27,6 +27,7 @@ brew install gnupg2 --with-gnupg21
 
 # Programming languages
 brew cask install java
+brew cask install java-jdk-javadoc
 brew install gradle
 brew install scala
 brew install sbt
