@@ -61,13 +61,13 @@
 (add-hook 'python-mode-hook 'fci-mode)
 
 (require 'yasnippet)
-(setq yas-snippet-dirs
-      '(;; personal snippets
-        "~/.emacs.d/snippets"
-        ;; You'll need to clone https://github.com/AndreaCrotti/yasnippet-snippets
-        ;; and customize this based on where you clone it.
-        "~/vcs/github.com/AndreaCrotti/yasnippet-snippets"
-        ))
+;; (setq yas-snippet-dirs
+;;       '(;; personal snippets
+;;         "~/.emacs.d/snippets"
+;;         ;; You'll need to clone https://github.com/AndreaCrotti/yasnippet-snippets
+;;         ;; and customize this based on where you clone it.
+;;         "~/vcs/github.com/AndreaCrotti/yasnippet-snippets"
+;;         ))
 (define-key yas-minor-mode-map (kbd "\t") nil)
 (define-key yas-minor-mode-map [(tab)] nil)
 (define-key yas-minor-mode-map (kbd "TAB") nil)

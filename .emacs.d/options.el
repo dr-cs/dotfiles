@@ -19,6 +19,9 @@
 (setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Got this from https://colinxy.github.io/software-installation/2016/09/24/emacs25-easypg-issue.html
+(setq epa-pinentry-mode 'loopback)
+
 ;; UTF-8 everywhere
 (prefer-coding-system 'utf-8)
 (set-language-environment 'utf-8)
@@ -48,6 +51,7 @@
 (setq linum-eager nil)
 
 ;; Keybindings
+(setq mac-option-modifier 'super)
 (global-set-key (kbd "M-j") 'join-line)
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "C-x g") 'magit-status)

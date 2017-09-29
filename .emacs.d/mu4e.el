@@ -7,6 +7,8 @@
   (add-to-list 'load-path "/usr/share/emacs24/site-lisp/mu4e/"))
 
 (require 'mu4e)
+(require 'smtpmail)
+
 
 ;; acount defaults
 (setq mu4e-sent-folder "/gmail/Sent Messages"
@@ -17,13 +19,14 @@
                               "Chris Simpkins\n"
                               "Mobile: 404-663-4946\n")
       message-send-mail-function 'smtpmail-send-it
-      smtpmail-auth-credentials '(("smtp.gmail.com"
-                                   587
-                                   "chris.simpkins@gmail.com"
-                                   (shell-command-to-string
-                                    "keyring get gmail.com chris.simpkins@gmail.com")))
-      ;;starttls-use-gnutls t
-      smtpmail-stream-type 'tls
+      ;; smtpmail-auth-credentials '(("smtp.gmail.com"
+      ;;                              587
+      ;;                              "chris.simpkins@gmail.com"
+      ;;                              (shell-command-to-string
+      ;;                               "keyring get gmail.com chris.simpkins@gmail.com")))
+      starttls-use-gnutls t
+      ;; smtpmail-stream-type 'tls
+      smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-local-domain "gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
@@ -38,11 +41,12 @@
      (user-mail-address "chris.simpkins@gmail.com")
      (smtpmail-local-domain "gmail.com")
      (smtpmail-smtp-server "smtp.gmail.com")
-     (smtpmail-auth-credentials '(("smtp.gmail.com"
-                                   587
-                                   "chris.simpkins@gmail.com"
-                                   (shell-command-to-string
-                                    "keyring get gmail.com chris.simpkins@gmail.com"))))
+     (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
+     ;; (smtpmail-auth-credentials '(("smtp.gmail.com"
+     ;;                               587
+     ;;                               "chris.simpkins@gmail.com"
+     ;;                               (shell-command-to-string
+     ;;                                "keyring get gmail.com chris.simpkins@gmail.com"))))
      (mu4e-compose-signature (concat
                               "Chris Simpkins\n"
                               "Mobile: 404-663-4946\n")))
@@ -53,15 +57,16 @@
      (user-mail-address "chris.simpkins@gatech.edu")
      (smtpmail-local-domain "gatech.edu")
      (smtpmail-smtp-server "sccl.cc.gatech.edu")
-     (smtpmail-auth-credentials '(("sccl.cc.gatech.edu"
-                                   465
-                                   "cs257"
-                                   (shell-command-to-string
-                                    "keyring get gatech.edu cs257"))))
+     (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
+     ;; (smtpmail-auth-credentials '(("sccl.cc.gatech.edu"
+     ;;                               465
+     ;;                               "cs257"
+     ;;                               (shell-command-to-string
+     ;;                                "keyring get gatech.edu cs257"))))
      (mu4e-compose-signature (concat
-                              "Chris Simpkins, Lecturer\n"
+                              "Chris Simpkins, Ph.D.\n"
+                              "Lecturer, GT Scuba Instructor\n"
                               "College of Computing, Room 133\n"
-                              "GT Scuba Instructor, PADI # 347984\n"
                               "Georgia Institute of Technology\n"
                               "Mobile: 404-663-4946\n"
                               "http://www.cc.gatech.edu/~simpkins/\n")))
@@ -72,15 +77,16 @@
      (user-mail-address "simpkins@cc.gatech.edu")
      (smtpmail-local-domain "office365.com")
      (smtpmail-smtp-server "smtp.office365.com")
-     (smtpmail-auth-credentials '(("smtp.office365.com"
-                                   587
-                                   "cs257@gatech.edu"
-                                   (shell-command-to-string
-                                    "keyring get gatech.edu cs257"))))
+     (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
+     ;; (smtpmail-auth-credentials '(("smtp.office365.com"
+     ;;                               587
+     ;;                               "cs257@gatech.edu"
+     ;;                               (shell-command-to-string
+     ;;                                "keyring get gatech.edu cs257"))))
      (mu4e-compose-signature (concat
-                              "Chris Simpkins, Lecturer\n"
+                              "Chris Simpkins, Ph.D.\n"
+                              "Lecturer, GT Scuba Instructor\n"
                               "College of Computing, Room 133\n"
-                              "GT Scuba Instructor, PADI # 347984\n"
                               "Georgia Institute of Technology\n"
                               "Mobile: 404-663-4946\n"
                               "http://www.cc.gatech.edu/~simpkins/\n")))
@@ -91,11 +97,12 @@
      (user-mail-address "chris@proscuba.training")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
-     (smtpmail-auth-credentials '(("sub4.mail.dreamhost.com"
-                                   587
-                                   "chris@proscuba.training"
-                                   (shell-command-to-string
-                                    "keyring get proscuba.training chris@proscuba.training"))))
+     (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
+     ;; (smtpmail-auth-credentials '(("sub4.mail.dreamhost.com"
+     ;;                               587
+     ;;                               "chris@proscuba.training"
+     ;;                               (shell-command-to-string
+     ;;                                "keyring get proscuba.training chris@proscuba.training"))))
      (mu4e-compose-signature (concat
                               "Chris Simpkins"
                               "PADI Master Scuba Diver Trainer 347984"
@@ -110,11 +117,12 @@
      (user-mail-address "chris@simpkins.org")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
-     (smtpmail-auth-credentials '(("sub4.mail.dreamhost.com"
-                                   587
-                                   "management@2061kinridgetrail.com"
-                                   (shell-command-to-string
-                                    "keyring get 2061kinridgetrail.com management@2061kinridgetrail.com"))))
+     (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
+     ;; (smtpmail-auth-credentials '(("sub4.mail.dreamhost.com"
+     ;;                               587
+     ;;                               "management@2061kinridgetrail.com"
+     ;;                               (shell-command-to-string
+     ;;                                "keyring get 2061kinridgetrail.com management@2061kinridgetrail.com"))))
      (mu4e-compose-signature (concat
                               "Chris Simpkins\n"
                               "chris@simpkins.org\n")))
@@ -125,6 +133,7 @@
      (user-mail-address "management@2061kinridgetrail.com")
      (smtpmail-local-domain "dreamhost.com")
      (smtpmail-smtp-server "sub4.mail.dreamhost.com")
+     (smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg"))
      (mu4e-compose-signature (concat
                               "Chris Simpkins\n"
                               "Management@2061KinridgeTrail.com\n")))))
@@ -141,7 +150,7 @@
 (setq mu4e-maildir-shortcuts
       '( ("/gmail/Inbox"                            . ?g)
          ("/drcs/Inbox"                             . ?d)
-         ("/o365/Inbox"                             . ?o)
+         ("/o365/Inbox"                             . ?3)
          ("/chris@simpkins.org/Inbox"               . ?s)
          ("/chris@proscuba.training/Inbox"          . ?p)
          ("/management@2061kinridgetrail.com/Inbox" . ?k)))
@@ -171,6 +180,12 @@
 ;; render html as html
 (require 'mu4e-contrib)
 (setq mu4e-html2text-command 'mu4e-shr2text)
+
+(setq mu4e-msg2pdf 'msg2pdf)
+
+;; View in browser action
+(add-to-list 'mu4e-view-actions
+  '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
 ;; don't save messages to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
@@ -220,6 +235,10 @@
 
 (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
+;; Header for quoted messsages in reply-to and forwardq
+(setq message-citation-line-format "On %Y-%m-%d %a at %R UTC, %f wrote:\n")
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+
 (defun my-choose-smtp-account ()
   (if (message-mail-p)
       (save-excursion
@@ -233,6 +252,10 @@
                 "gmail")
                ((string-match "chris.simpkins@gatech.edu" from)
                 "drcs")
+               ((string-match "simpkins@cc.gatech.edu" from)
+                "o365")
+               ((string-match "cs257@gatech.edu" from)
+                "o365")
                ((string-match "chris@proscuba.training" from)
                 "prost")
                ((string-match "chris@simpkins.org" from)
