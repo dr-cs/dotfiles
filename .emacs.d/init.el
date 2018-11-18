@@ -11,3 +11,4 @@
 (load "~/.emacs.d/options.el")
 (load "~/.emacs.d/mu4e.el")
 (load "~/.emacs.d/org.el")
+(load "~/.emacs.d/intellij.el")
