@@ -5,3 +5,6 @@ alias ll='ls -la'
 
 # A personal bin directory
 export PATH=~/bin:$PATH:~/vcs/github.com/csimpkins/course-tools/bin
+
+# Source the .bash_profile in case other apps modify shell variables there
+. .bash_profile
