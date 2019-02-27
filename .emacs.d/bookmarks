@@ -1,0 +1,20 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("datamastery"
+ (filename . "~/vcs/gitlab.com/datamastery/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "48 Dec 29 15:47 ")
+ (position . 245))
+("dotfiles"
+ (filename . "~/vcs/gitlab.com/drcs/dotfiles/")
+ (front-context-string . ".emacs.d\n  drwxr")
+ (rear-context-string . "16 Nov 23 20:42 ")
+ (position . 251))
+("drcs"
+ (filename . "~/vcs/gitlab.com/drcs/")
+ (front-context-string)
+ (rear-context-string . "44 Nov 23 12:09 ")
+ (position . 234))
+)

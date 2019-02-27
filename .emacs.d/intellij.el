@@ -42,8 +42,10 @@
 (global-set-key (kbd "C-g") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-G") 'mc/mark-all-like-this)
+(global-set-key (kbd "<s-s-down>") 'mc/mark-next-lines)
 
 (global-set-key (kbd "<S-s-up>") 'transpose-lines)
+
 
 (global-set-key (kbd "C-J") 'join-line)
 (global-set-key (kbd "M-g") 'goto-line)
