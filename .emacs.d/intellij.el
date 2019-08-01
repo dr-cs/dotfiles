@@ -30,6 +30,7 @@
 (global-set-key (kbd "M-v") 'yank)
 (global-set-key (kbd "M-z") 'undo)
 
+
 ;; After using ESC for keyboard-quit and M-x for cut, need this for
 ;; extended commands
 (global-set-key (kbd "s-x") 'execute-extended-command)
@@ -50,7 +51,20 @@
 (global-set-key (kbd "C-J") 'join-line)
 (global-set-key (kbd "M-g") 'goto-line)
 
-
 ;; Other stuff
 (global-set-key (kbd "M-f") 'isearch-forward)
 (global-set-key (kbd "M-f") 'isearch-forward)
+
+;; To mimic IntelliJ's duplicate-line, which is M-d on macOS
+;; Based on "Nate"'s answer to
+;; https://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+)
+(global-set-key (kbd "M-d") 'duplicate-line)
