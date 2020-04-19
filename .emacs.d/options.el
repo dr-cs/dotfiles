@@ -67,8 +67,10 @@
 
 ;; Wider than 80 for general editing, e.g., org-mode tables. Use
 ;; fill-column-indicator for programming modes
-(add-to-list 'initial-frame-alist '(width . 96))
-(add-to-list 'default-frame-alist '(width . 96))
+(add-to-list 'initial-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'initial-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(height . 80))
 
 (defun my:window-setup-hook ()
   (when (and (string= system-type "gnu/linux") window-system)

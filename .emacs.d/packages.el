@@ -38,9 +38,12 @@
 (use-package all-the-icons :demand)
 (use-package neotree :demand)
 (use-package ensime :pin melpa-stable)
+(use-package monokai-theme :demand)
 
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(load-theme 'monokai t)
+
+;; (require 'ensime)
+;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)

@@ -9,7 +9,7 @@
 (load "~/.emacs.d/local-packages.el")
 (load "~/.emacs.d/functions.el")
 (load "~/.emacs.d/options.el")
-(load "~/.emacs.d/mu4e.el")
+; (load "~/.emacs.d/mu4e.el")
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/intellij.el")
 (custom-set-variables
@@ -19,7 +19,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ensime neotree all-the-icons projectile fill-column-indicator git-gutter-fringe+ magit graphviz-dot-mode multiple-cursors expand-region company yasnippet use-package))))
+    (monokai-theme ensime neotree all-the-icons projectile fill-column-indicator git-gutter-fringe+ magit graphviz-dot-mode multiple-cursors expand-region company yasnippet use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -21,6 +21,7 @@
 (global-set-key (kbd "M-}") 'next-buffer)
 (global-set-key (kbd "M-{") 'previous-buffer)
 (global-set-key (kbd "<C-tab>") 'list-buffers)
+(global-set-key (kbd "<M-e>") 'list-buffers)
 
 ;; CUA mode stuff -- I dont'use cua-mode because on macOS M- is used in place of C-
 ;; M-s is prefix for a few things I don't use, so I don't mind remapping it
@@ -46,7 +47,6 @@
 (global-set-key (kbd "<s-s-down>") 'mc/mark-next-lines)
 
 (global-set-key (kbd "<S-s-up>") 'transpose-lines)
-
 
 (global-set-key (kbd "C-J") 'join-line)
 (global-set-key (kbd "M-g") 'goto-line)
