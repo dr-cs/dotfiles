@@ -37,7 +37,6 @@
            ("s-F" . projectile-grep)))
 (use-package all-the-icons :demand)
 (use-package neotree :demand)
-(use-package ensime :pin melpa-stable)
 (use-package monokai-theme :demand)
 
 (load-theme 'monokai t)
@@ -95,6 +94,9 @@
 (setq-default graphviz-dot-auto-indent-on-semi nil)
 (setq-default graphviz-dot-indent-width 4)
 (setq graphviz-dot-auto-indent-on-semi nil)
+
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; neotree customizations
 (require 'neotree)

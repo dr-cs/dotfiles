@@ -53,10 +53,8 @@
 (setq linum-eager nil)
 
 ;; Keybindings
-(setq mac-option-modifier 'super)
+;;(setq mac-option-modifier 'super)
 (global-set-key (kbd "M-g") 'goto-line)
-(global-set-key (kbd "C-x g") 'magit-status)
-
 
 ;; From http://www.emacswiki.org/emacs/SmoothScrolling
 ;; Scroll one line at a time (less "jumpy" than defaults)
