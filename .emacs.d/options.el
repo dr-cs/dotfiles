@@ -1,5 +1,14 @@
 ;; Customization for stuff built-in to Emacs
 
+;; From https://emacs.stackexchange.com/questions/45135/change-permanently-font-size-in-aquamacs
+(when (boundp 'aquamacs-version)
+  (setq initial-frame-alist nil)   ;; Undo Aquamacs forced defaults
+  (setq default-frame-alist nil)   ;; Undo Aquamacs forced defaults
+  (aquamacs-autoface-mode -1)      ;; Use one face (font) everywhere
+  ;;(set-frame-font "Menlo-14")    ;; Set the default font to Menlo size 12
+  (set-default-font "Menlo-14")    ;; This would do the same.
+)
+
 ;; Basics
 (set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
@@ -16,7 +25,7 @@
 (setq-default column-number-mode t)
 (show-paren-mode 1)
 (delete-selection-mode 1)
-(setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
+;;(setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
