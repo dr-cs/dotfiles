@@ -15,7 +15,13 @@
 (package-initialize)
 
 
-(load "~/.emacs.d/init.el")
+(load "~/.emacs.d/packages.el")
+(load "~/.emacs.d/local-packages.el")
+(load "~/.emacs.d/functions.el")
+(load "~/.emacs.d/options.el")
+(load "~/.emacs.d/org.el")
+(load "~/.emacs.d/intellij.el")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
