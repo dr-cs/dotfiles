@@ -25,6 +25,7 @@
 (setq-default column-number-mode t)
 (show-paren-mode 1)
 (delete-selection-mode 1)
+(transient-mark-mode 1)
 ;;(setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -76,8 +77,8 @@
 ;; fill-column-indicator for programming modes
 (add-to-list 'initial-frame-alist '(width . 100))
 (add-to-list 'default-frame-alist '(width . 100))
-(add-to-list 'initial-frame-alist '(height . 80))
-(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'initial-frame-alist '(height . 70))
+(add-to-list 'default-frame-alist '(height . 70))
 
 (defun my:window-setup-hook ()
   (when (and (string= system-type "gnu/linux") window-system)

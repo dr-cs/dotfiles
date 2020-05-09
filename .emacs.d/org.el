@@ -9,9 +9,9 @@
 (setq-default org-support-shift-select 1)
 (setq org-descriptive-links nil)
 
-(setq org-agenda-files (list "~/Dropbox (Personal)/org/personal.org"
-                             "~/Dropbox (Personal)/org/work.org"
-                             "~/Dropbox (Personal)/org/calendar.org"))
+(setq org-agenda-files (list "~/GoogleDrive/org/personal.org"
+                             "~/GoogleDrive/org/work.org"
+                             "~/GoogleDrive/org/calendar.org"))
 
 ;; Graphviz dot language
 (org-babel-do-load-languages

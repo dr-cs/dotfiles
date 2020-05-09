@@ -9,7 +9,8 @@
 (setq
  package-archives '(("org" . "http://orgmode.org/elpa/")
                     ("melpa" . "http://melpa.org/packages/")
-                    ("melpa-stable" . "http://stable.melpa.org/packages/")))
+                    ("melpa-stable" . "http://stable.melpa.org/packages/")
+                    ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (package-initialize)
 (when (not package-archive-contents)
@@ -38,6 +39,13 @@
 (use-package all-the-icons :demand)
 (use-package neotree :demand)
 (use-package monokai-theme :demand)
+
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 
 (load-theme 'monokai t)
 

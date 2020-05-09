@@ -17,10 +17,12 @@
   (yank)
   (open-line 1)
   (next-line 1)
-  (yank)
-)
+  (yank))
 
-system-type
+(defun join-line-below()
+  (interactive)
+  (next-line 1)
+  (delete-indentation))
 
 (cond ((boundp 'aquamacs-version)
        (progn
@@ -29,46 +31,29 @@ system-type
 
          (global-set-key (kbd "A-e") 'list-buffers)
          (global-set-key (kbd "A-z") 'undo)
-                                        ;(global-set-key (kbd "M-s-up") 'transpose-lines)
-         (global-set-key (kbd "C-J") 'join-line)
-         (global-set-key (kbd "A-g") 'goto-line)
+         (global-set-key (kbd "S-A-up") 'transpose-lines)
+         (global-set-key (kbd "C-J") 'join-line-below)
+         (global-set-key (kbd "A-l") 'goto-line)))
 
-         ;; Expand selection
-         (global-set-key (kbd "<A-up>") 'er/expand-region)
-         (global-set-key (kbd "<A-down>") 'er/contract-region)
-
-         ;; Multiple cursors
-         (global-set-key (kbd "<M-M-down>") 'mc/mark-next-lines)))
-
-      ((system-type "darwin")
+      ((string-equal system-type "darwin")
        (progn
          (setq mac-option-key-is-meta t)
          (setq mac-command-key-is-meta nil)
          (setq mac-command-modifier 'super)
          (setq mac-option-modifier 'meta)
 
-         (global-set-key (kbd "S-d") 'duplicate-line)
+         (global-set-key (kbd "s-d") 'duplicate-line)
 
-         (global-set-key (kbd "S-s") 'save-buffer)
-         (global-set-key (kbd "S-x") 'cua-copy-region)
-         (global-set-key (kbd "S-c") 'cua-cut-region)
-         (global-set-key (kbd "S-v") 'cua-paste)
+         (global-set-key (kbd "s-s") 'save-buffer)
+         (global-set-key (kbd "s-c") 'kill-ring-save)
+         (global-set-key (kbd "s-x") 'kill-region)
+         (global-set-key (kbd "s-v") 'yank)
 
-         (global-set-key (kbd "<S-e>") 'list-buffers)
-         (global-set-key (kbd "S-z") 'undo)
-                                        ;(global-set-key (kbd "<S-s-up>") 'transpose-lines)
-         (global-set-key (kbd "C-J") 'join-line)
-         (global-set-key (kbd "S-g") 'goto-line)
+         (global-set-key (kbd "<s-e>") 'list-buffers)
+         (global-set-key (kbd "s-z") 'undo)
+         (global-set-key (kbd "<S-s-up>") 'transpose-lines)
+         (global-set-key (kbd "C-J") 'join-line-below)
+         (global-set-key (kbd "s-l") 'goto-line)
 
          ;; Other stuff
-         (global-set-key (kbd "S-f") 'isearch-forward)
-         (global-set-key (kbd "S-f") 'isearch-forward)
-
-
-         ;; Expand selection
-         (global-set-key (kbd "<S-up>") 'er/expand-region)
-         (global-set-key (kbd "<S-down>") 'er/contract-region)
-
-         ;; Multiple cursors
-         (global-set-key (kbd "<M-M-down>") 'mc/mark-next-lines)
-         )))
+         (global-set-key (kbd "s-f") 'isearch-forward))))
