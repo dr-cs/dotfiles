@@ -42,25 +42,28 @@
 (set-selection-coding-system 'utf-8)
 
 ;; linum-mode everywhere, except where it doesn't belong
-(require 'linum)
-(setq linum-disabled-modes-list '(eshell-mode
-                                  wl-summary-mode
-                                  compilation-mode
-                                  dired-mode
-                                  speedbar-mode
-                                  mu4e-main-mode
-                                  mu4e-about-mode
-                                  mu4e-view-mode
-                                  mu4e-headers-mode
-                                  doc-view-mode))
-(defun linum-on ()
-  (unless (or (minibufferp)
-              (member major-mode linum-disabled-modes-list)
-            (and (not (eq (buffer-name) "*scratch*"))
-                 (string-match "*" (buffer-name))))
-    (linum-mode 1)))
-(global-linum-mode 1)
-(setq linum-eager nil)
+(if (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode)
+  (progn
+    (require 'linum)
+    (setq linum-disabled-modes-list '(eshell-mode
+                                      wl-summary-mode
+                                      compilation-mode
+                                      dired-mode
+                                      speedbar-mode
+                                      mu4e-main-mode
+                                      mu4e-about-mode
+                                      mu4e-view-mode
+                                      mu4e-headers-mode
+                                      doc-view-mode))
+    (defun linum-on ()
+      (unless (or (minibufferp)
+                  (member major-mode linum-disabled-modes-list)
+                  (and (not (eq (buffer-name) "*scratch*"))
+                       (string-match "*" (buffer-name))))
+        (linum-mode 1)))
+    (global-linum-mode 1)
+    (setq linum-eager nil)))
 
 ;; Keybindings
 ;;(setq mac-option-modifier 'super)
@@ -96,3 +99,26 @@
       (set-frame-size (selected-frame) text-width text-height))))
 
 (setq window-setup-hook 'my:window-setup-hook)
+
+(use-package all-the-icons :demand)
+
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+
+(use-package multiple-cursors
+  :demand
+  :bind
+  ("C-c m" . mc/edit-lines)
+  ("C->" . mc/mark-next-like-this)
+  ("C-<" . mc/mark-previous-like-this)
+  ("C-c C-<" . mc/mark-all-like-this)
+  :config
+  (setq mc/always-run-for-all t))
+
+(use-package which-key
+  :config (which-key-mode))

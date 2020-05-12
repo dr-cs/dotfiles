@@ -32,8 +32,7 @@
          (global-set-key (kbd "A-e") 'list-buffers)
          (global-set-key (kbd "A-z") 'undo)
          (global-set-key (kbd "S-A-up") 'transpose-lines)
-         (global-set-key (kbd "C-J") 'join-line-below)
-         (global-set-key (kbd "A-l") 'goto-line)))
+         (global-set-key (kbd "C-J") 'join-line-below)))
 
       ((string-equal system-type "darwin")
        (progn
@@ -53,7 +52,6 @@
          (global-set-key (kbd "s-z") 'undo)
          (global-set-key (kbd "<S-s-up>") 'transpose-lines)
          (global-set-key (kbd "C-J") 'join-line-below)
-         (global-set-key (kbd "s-l") 'goto-line)
 
          ;; Other stuff
          (global-set-key (kbd "s-f") 'isearch-forward))))
