@@ -78,8 +78,8 @@
 
 ;; Wider than 80 for general editing, e.g., org-mode tables. Use
 ;; fill-column-indicator for programming modes
-(add-to-list 'initial-frame-alist '(width . 100))
-(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'initial-frame-alist '(width . 150))
+(add-to-list 'default-frame-alist '(width . 150))
 (add-to-list 'initial-frame-alist '(height . 70))
 (add-to-list 'default-frame-alist '(height . 70))
 
@@ -122,3 +122,7 @@
 
 (use-package which-key
   :config (which-key-mode))
+
+(use-package string-inflection
+  :bind
+  ("C-c C-u" . string-inflection-all-cycle))

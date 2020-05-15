@@ -7,8 +7,8 @@
 
 (setq
  package-archives '(("org" . "http://orgmode.org/elpa/")
-                    ("melpa" . "http://melpa.org/packages/")
                     ("melpa-stable" . "http://stable.melpa.org/packages/")
+                    ;; ("melpa" . "http://melpa.org/packages/")
                     ("gnu" . "http://elpa.gnu.org/packages/")))
 
 
@@ -19,8 +19,10 @@
          sbt-mode
          scala-mode
          markdown-mode
+         yaml-mode
          monokai-theme
          all-the-icons
+         string-inflection
          projectile
          git-gutter-fringe+
          magit
@@ -31,9 +33,9 @@
          yasnippet
          which-key
          treemacs
-	 treemacs-projectile
-;;         treemacs-icons-dired
-	 treemacs-magit
+         treemacs-projectile
+         treemacs-icons-dired
+         treemacs-magit
          flycheck
          dap-mode
          lsp-mode
