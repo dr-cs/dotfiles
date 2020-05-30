@@ -93,6 +93,13 @@
   (lsp-mode . dap-mode)
   (lsp-mode . dap-ui-mode))
 
+(use-package counsel ;; brings ivy and swiper as dependencies
+  :pin melpa-stable)
+
+(use-package lsp-ivy
+  :pin melpa
+  :commands lsp-ivy-workspace-symbol)
+
 (use-package treemacs
   :ensure t
   :defer t
@@ -123,10 +130,11 @@
   :after treemacs projectile
   :ensure t)
 
-;; (use-package treemacs-icons-dired
-;;   :after treemacs dired
-;;   :ensure t
-;;   :config (treemacs-icons-dired-mode))
+(use-package treemacs-icons-dired
+  :after treemacs dired
+  :ensure t
+  :pin melpa-stable
+  :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
   :after treemacs magit

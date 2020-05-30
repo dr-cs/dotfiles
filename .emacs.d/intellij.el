@@ -19,11 +19,15 @@
   (next-line 1)
   (yank))
 
+;; Emacs's built-in join-line joins the current line to the line
+;; above.  This join-line works like IntelliJ's, joining the current
+;; line to the line below
 (defun join-line-below()
   (interactive)
   (next-line 1)
   (delete-indentation))
 
+;; TODO: I don't use Aquamacs, so I should probably remove this.
 (cond ((boundp 'aquamacs-version)
        (progn
          ;; In Aquamacs, A- is Mac Command key, M- is Mac Option key
@@ -51,7 +55,4 @@
          (global-set-key (kbd "<s-e>") 'list-buffers)
          (global-set-key (kbd "s-z") 'undo)
          (global-set-key (kbd "<S-s-up>") 'transpose-lines)
-         (global-set-key (kbd "C-J") 'join-line-below)
-
-         ;; Other stuff
-         (global-set-key (kbd "s-f") 'isearch-forward))))
+         (global-set-key (kbd "C-J") 'join-line-below))))
