@@ -5,6 +5,7 @@
 
 ;; Enable scala-mode for highlighting, indentation and motion commands
 (use-package scala-mode
+  :pin melpa
   :mode "\\.s\\(cala\\|bt\\)$")
 
 ;; Enable sbt mode for executing sbt commands
@@ -21,12 +22,19 @@
    (setq sbt:program-options '("-Dsbt.supershell=false")))
 
 (use-package yaml-mode
+  :pin melpa
   :mode "\\.y[a]ml$")
+
+(use-package rustic)
+
+(use-package julia-mode
+  :pin melpa)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; General programming support
 
 (use-package flycheck
+  :pin melpa
   :init (global-flycheck-mode))
 
 
@@ -89,6 +97,7 @@
 (use-package posframe)
 
 (use-package dap-mode
+  :pin melpa-stable
   :hook
   (lsp-mode . dap-mode)
   (lsp-mode . dap-ui-mode))
