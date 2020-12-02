@@ -1,0 +1,2 @@
+CLUSTERID="$(cut -d'/' -f2 <<<$(kubectl config current-context))"
+ibmcloud ks cluster config --cluster $CLUSTERID
