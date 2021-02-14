@@ -24,7 +24,7 @@ You may need to restart your computer after executing the commands above.  After
 5. `bash install-osx.sh`
 6. `bash customize-osx.sh`
 
-## Ubuntu
+## Ubuntu (works on Windows 10 WSL2 Ubuntu)
 
 1. Install [Git](http://git-scm.com/) (on Ubuntu: `sudo apt-get install git`)
 2. Clone this repository
@@ -32,10 +32,12 @@ You may need to restart your computer after executing the commands above.  After
 4. `sudo bash install-ubuntu.sh`
 5. `bash customize-ubuntu.sh`
 
-
 ## General
 
 After doing the platform-specific installations and customizations above, do the following.
 
 1. Run `bash install-general.sh`
 2. Run `bash link-dotfiles.sh`
+3. Install the [Nerd Fonts](https://github.com/romkatv/powerlevel10k#fonts) required by the Powerlevel10k zsh theme and configure (Windows) Terminal to use `MesloLGS NF`.
+
+After restarting terminal, run `p10k configure`.
