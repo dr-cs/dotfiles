@@ -4,6 +4,7 @@ ln -sfv "$DOTFILES_DIR/.bashrc" ~
 ln -sfv "$DOTFILES_DIR/.bash_profile" ~
 ln -sfv "$DOTFILES_DIR/custom-zsh-functions" ~
 ln -sfv "$DOTFILES_DIR/.zshrc" ~
+ln -sfv "$DOTFILES_DIR/.p10k.zsh" ~
 ln -sfv "$DOTFILES_DIR/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/.gitignore" ~
 ln -sfv "$DOTFILES_DIR/.mbsyncrc" ~

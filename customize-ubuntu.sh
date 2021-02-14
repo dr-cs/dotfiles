@@ -6,8 +6,6 @@ mkdir $EMACS_SHARE
 chown -R $USER $EMACS_SHARE
 chmod -R 775 $EMACS_SHARE
 
-echo 'export PS1="\[\033[32;1m\][\u@\h \w]\n$ \[\033[0m\]"' >> ~/.bashrc
-
 echo 'XKBOPTIONS="ctrl:nocaps"' >> /etc/default/keyboard
 echo 'XKBOPTIONS="caps:ctrl_modifier"' >> /etc/default/keyboard
 
