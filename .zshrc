@@ -11,8 +11,8 @@ export EDITOR='vim'
 # Custom functions
 fpath+=~/custom-zsh-functions
 autoload ~/custom-zsh-functions/*(:t)
-#source ~/antigen.zsh
-source /usr/local/share/antigen/antigen.zsh
+source ~/.antigen.zsh
+#source /usr/local/share/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
