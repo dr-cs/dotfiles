@@ -1,9 +1,11 @@
+#!/usr/bin/env bash
+
 # Antigen package manager for zsh
-curl -L git.io/antigen > .antigen.zsh
+curl -L git.io/antigen > ~/.antigen.zsh
 
 # SDKMAN!
 curl -s https://get.sdkman.io | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+. "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Java 8
 # sdk install java 8.0.282.hs-adpt

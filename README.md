@@ -21,21 +21,21 @@ You may need to restart your computer after executing the commands above.  After
 2. Install [Git](http://git-scm.com/) (on OS X: `brew install git`)
 3. Clone this repository
 4. `cd` to the `dotfiles` directory created by cloning this repository
-5. `sh install-osx.sh`
-6. `sh customize-osx.sh`
+5. `bash install-osx.sh`
+6. `bash customize-osx.sh`
 
 ## Ubuntu
 
 1. Install [Git](http://git-scm.com/) (on Ubuntu: `sudo apt-get install git`)
 2. Clone this repository
 3. `cd` to the `dotfiles` directory created by cloning this repository
-4. `sudo sh install-ubuntu.sh`
-5. `sh customize-ubuntu.sh`
+4. `sudo bash install-ubuntu.sh`
+5. `bash customize-ubuntu.sh`
 
 
 ## General
 
 After doing the platform-specific installations and customizations above, do the following.
 
-1. Run `install-general.sh`
-2. Run `link-dotfiles.sh`
+1. Run `bash install-general.sh`
+2. Run `bash link-dotfiles.sh`
