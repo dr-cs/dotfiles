@@ -16,6 +16,7 @@ apt-get -y install ispell
 apt-get -y install exfat-utils
 apt-get -y install m4
 apt-get -y install zsh
+apt-get -y install keychain
 apt-get -y install texlive-full
 
 # Programming languages
@@ -28,5 +29,7 @@ apt-get -y install opam
 sudo apt-get autoremove
 sudo apt-get autoclean
 sudo apt-get -y update
+
+curl -s "https://get.sdkman.io" | bash
 
 echo install-ubuntu.sh complete.
