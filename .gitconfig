@@ -2,8 +2,9 @@
 	name = Chris Simpkins
 	email = chris.simpkins@gmail.com
 [core]
-	editor = emacs
+	editor = vim
 	excludesfile = ~/.gitignore
 	autocrlf = input
+	pager = 
 [push]
 	default = simple
