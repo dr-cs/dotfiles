@@ -47,7 +47,7 @@ Now you have WSL installed.  In a WSL terminal window, proceed with the Ubuntu s
 2. Clone this repository
 3. `cd` to the `dotfiles` directory created by cloning this repository
 4. `sudo bash install-ubuntu.sh`
-5. `bash customize-ubuntu.sh`
+5. On Ubuntu, but not WSL: `bash customize-ubuntu.sh`
 
 ## General
 
@@ -55,6 +55,22 @@ After doing the platform-specific installations and customizations above, do the
 
 1. Run `bash install-general.sh`
 2. Run `bash link-dotfiles.sh`
-3. Install the [Nerd Fonts](https://github.com/romkatv/powerlevel10k#fonts) required by the Powerlevel10k zsh theme and configure (Windows) Terminal to use `MesloLGS NF`.
+3. Install the [Nerd Fonts](https://github.com/romkatv/powerlevel10k#fonts) required by the Powerlevel10k zsh theme and configure (Windows) Terminal to use `MesloLGS NF` by adding these lines to your Windows Terminal configuration under `default` if you want to use this font in all terminals, or only under the Ubuntu profile is you only want to use this font in your Ubuntu terminal:
 
-After restarting terminal, run `p10k configure`.
+
+```json
+"fontFace": "MesloLGS NF"
+```
+
+4. Make `zsh` your default shell by running these commands
+
+WIP -- should reorganize, maybe change scripts.
+
+```sh
+ZSH=$(command -v zsh)
+echo $ZSH
+chsh -s $ZSH
+exportSHELL=$ZSH
+```
+
+After restarting terminal, run `zsh`.
