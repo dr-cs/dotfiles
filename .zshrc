@@ -40,10 +40,13 @@ autoload -U +X bashcompinit && bashcompinit
 # On work computer
 # source /usr/local/ibmcloud/autocomplete/zsh_autocomplete
 
-# Start ssh-agent so I don't have to re-enter my pass phrase
+# Start ssh-agent on Linux so I don't have to re-enter my pass phrase
 # Thanks to https://esc.sh/blog/ssh-agent-windows10-wsl2/
-/usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
-source $HOME/.keychain/$(hostname)-sh
+
+if [[ `uname` == "Linux" ]]; then
+  /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+  source $HOME/.keychain/$(hostname)-sh
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
