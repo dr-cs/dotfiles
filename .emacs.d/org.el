@@ -1,17 +1,17 @@
 ;; My org-mode customizations
 
 ;; These are the suggested defaults from http://orgmode.org/org.html#Introduction
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
 
 (setq-default org-support-shift-select 1)
 (setq org-descriptive-links nil)
 
-(setq org-agenda-files (list "~/GoogleDrive/org/personal.org"
-                             "~/GoogleDrive/org/work.org"
-                             "~/GoogleDrive/org/calendar.org"))
+(setq org-agenda-files (list "~/Dropbox/org/personal.org"
+                             "~/Dropbox/org/work.org"
+                             "~/Dropbox/org/calendar.org"))
 
 ;; Graphviz dot language
 (org-babel-do-load-languages
@@ -21,6 +21,7 @@
        (ditaa . t)))
 
 (require 'ox-latex)
+
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 

@@ -3,10 +3,15 @@
 ;; And, yes, I install packages programmatically.
 (setq custom-file "~/.emacs.d/custom.el")
 
-(load "~/.emacs.d/packages.el")
-(load "~/.emacs.d/local-packages.el")
-(load "~/.emacs.d/functions.el")
-(load "~/.emacs.d/options.el")
+
+(load "~/.emacs.d/core-packages.el")
 (load "~/.emacs.d/org.el")
-(load "~/.emacs.d/intellij.el")
-(load "~/.emacs.d/ides.el")
+(load "~/.emacs.d/options.el")
+
+;; (load "~/.emacs.d/packages.el")
+;; (load "~/.emacs.d/local-packages.el")
+;; (load "~/.emacs.d/functions.el")
+;; (load "~/.emacs.d/options.el")
+;; (load "~/.emacs.d/org.el")
+;; (load "~/.emacs.d/intellij.el")
+;; (load "~/.emacs.d/ides.el")
