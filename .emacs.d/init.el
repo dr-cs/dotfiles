@@ -4,8 +4,10 @@
 (setq custom-file "~/.emacs.d/custom.el")
 
 
-(load "~/.emacs.d/core-packages.el")
+(load "~/.emacs.d/core.el")
 (load "~/.emacs.d/org.el")
+(load "~/.emacs.d/writing.el")
+(load "~/.emacs.d/programming.el")
 (load "~/.emacs.d/options.el")
 
 ;; (load "~/.emacs.d/packages.el")

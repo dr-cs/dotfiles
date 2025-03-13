@@ -4,8 +4,12 @@
 (set-face-attribute 'default nil
                     :family "Hack"
                     :height 160)
-(set-face-attribute 'variable-pitch nil :family "SF Pro")
-(set-face-attribute 'fixed-pitch nil :family "Hack")
+(set-face-attribute 'variable-pitch nil
+                    :family "Helvetica"
+                    :height 160)
+(set-face-attribute 'fixed-pitch nil
+                    :family "Hack"
+                    :height 160)
 (setq modus-themes-mixed-fonts t)
 (setq ef-themes-mixed-fonts t)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -18,7 +22,6 @@
 (setq-default show-paren-mode 1)
 (if window-system (tool-bar-mode 0))
 (if (boundp 'aquamacs-version) (tabbar-mode 0))
-(setq-default linum-format "%4d ")
 (set-scroll-bar-mode 'right)
 
 (setq-default visual-line-fringe-indicators '(nil nil))
@@ -58,3 +61,19 @@
 (add-to-list 'default-frame-alist '(width . 150))
 (add-to-list 'initial-frame-alist '(height . 70))
 (add-to-list 'default-frame-alist '(height . 70))
+
+;; Got this idea from
+;; https://protesilaos.com/codelog/2024-02-08-emacs-window-rules-display-buffer-alist/
+(setq display-buffers-alist
+      ;; For pop-up info buffers like *Help*, *Warnings*, *Messages*,
+      ;; etc., place window below, dedicate window to buffer so don't
+      ;; accidentally open a new buffer in it, focus it so it can be
+      ;; easily dismissed.
+      '(
+        ("\\*eldoc\\*"
+         ;; List of display functions
+         (display-buffer-reuse-mode-window display-buffer-below-selected)
+         ;; Parameters
+         (window-height . fit-window-to-buffer)
+         (dedicated . t)
+         (body-function . (lambda (window) (select-window window))))))
