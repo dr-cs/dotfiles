@@ -1,12 +1,13 @@
 ;; Customization for stuff built-in to Emacs
 
+;; (load-theme 'modus-operandi-tinted)
 (load-theme 'modus-vivendi-tinted)
 (set-face-attribute 'default nil
                     :family "Hack"
                     :height 160)
 (set-face-attribute 'variable-pitch nil
                     :family "Helvetica"
-                    :height 160)
+                    :height 180)
 (set-face-attribute 'fixed-pitch nil
                     :family "Hack"
                     :height 160)
@@ -77,3 +78,7 @@
          (window-height . fit-window-to-buffer)
          (dedicated . t)
          (body-function . (lambda (window) (select-window window))))))
+
+(global-display-line-numbers-mode 1)
+;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
+;; (add-hook 'text-mode-hook #'display-line-numbers-mode)
