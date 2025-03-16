@@ -279,7 +279,9 @@
   :config
   (setq mc/always-run-for-all t))
 
-(use-package nlinum
-  :config
-  (setq nlinum-format "%4d")
-  (nlinum-mode))
+(use-package magit)
+
+(use-package git-gutter
+  :hook
+  (prog-mode . git-gutter-mode)
+  (text--mode . git-gutter-mode))
