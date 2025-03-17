@@ -28,6 +28,8 @@
 (setq-default visual-line-fringe-indicators '(nil nil))
 (setq-default word-wrap t)
 (setq-default column-number-mode t)
+(setq-default require-final-newline t)
+(setq help-window-select t)
 (show-paren-mode 1)
 (delete-selection-mode 1)
 (transient-mark-mode 1)
