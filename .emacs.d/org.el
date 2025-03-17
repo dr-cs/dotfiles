@@ -9,9 +9,11 @@
 (setq-default org-support-shift-select 1)
 (setq org-descriptive-links nil)
 
-(setq org-agenda-files (list "~/Dropbox/org/personal.org"
-                             "~/Dropbox/org/work.org"
-                             "~/Dropbox/org/calendar.org"))
+
+(setq org-directory "~/Documents/org")
+(if (file-directory-p org-directory) nil
+      (make-directory org-directory))
+(setq org-agenda-files (directory-files-recursively org-directory "org$"))
 
 ;; Graphviz dot language
 (org-babel-do-load-languages
@@ -19,6 +21,10 @@
      '((dot . t)
        (python . t)
        (ditaa . t)))
+
+(plist-put org-format-latex-options :background "Transparent")
+(plist-put org-format-latex-options :scale 2.0)
+
 
 (require 'ox-latex)
 
