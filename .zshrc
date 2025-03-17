@@ -16,10 +16,11 @@ source ~/.antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle direnv
 antigen bundle git
 antigen bundle kubectl
 antigen bundle helm
-# antigen bundle docker
+antigen bundle docker
 antigen bundle tmux
 antigen bundle tmuxinator
 # Other bundles
@@ -57,3 +58,27 @@ sdk use java 8.0.282.j9-adpt > /dev/null
 
 export PATH="$PATH:$HOME/go/bin"
 export LESS="-Xr"
+
+# https://direnv.net/docs/hook.html
+eval "$(direnv hook zsh)"
+
+# https://github.com/akermu/emacs-libvterm?tab=readme-ov-file#shell-side-configuration
+vterm_printf() {
+    if [ -n "$TMUX" ] \
+        && { [ "${TERM%%-*}" = "tmux" ] \
+            || [ "${TERM%%-*}" = "screen" ]; }; then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'

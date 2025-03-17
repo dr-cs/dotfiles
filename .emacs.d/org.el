@@ -1,17 +1,19 @@
 ;; My org-mode customizations
 
 ;; These are the suggested defaults from http://orgmode.org/org.html#Introduction
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
 
 (setq-default org-support-shift-select 1)
 (setq org-descriptive-links nil)
 
-(setq org-agenda-files (list "~/GoogleDrive/org/personal.org"
-                             "~/GoogleDrive/org/work.org"
-                             "~/GoogleDrive/org/calendar.org"))
+
+(setq org-directory "~/Documents/org")
+(if (file-directory-p org-directory) nil
+      (make-directory org-directory))
+(setq org-agenda-files (directory-files-recursively org-directory "org$"))
 
 ;; Graphviz dot language
 (org-babel-do-load-languages
@@ -20,7 +22,17 @@
        (python . t)
        (ditaa . t)))
 
+(plist-put org-format-latex-options :background "Transparent")
+(plist-put org-format-latex-options :scale 2.0)
+
+
 (require 'ox-latex)
+
+;; https://github.com/jkitchin/ox-ipynb
+;; TODO: this fails on ox-ipynb.el:78 -- (require 's).  Must be something in John Kitchin's personal setup.
+;; (add-to-list 'load-path "~/vcs/github.com/dr-cs/ox-ipynb")
+;; (require 'ox-ipynb)
+
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 

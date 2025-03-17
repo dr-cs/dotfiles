@@ -17,8 +17,9 @@ brew install graphviz
 brew install pandoc
 # This is the best emacs for Mac OSX.
 # See https://github.com/railwaycat/homebrew-emacsmacport
-brew tap railwaycat/emacsmacport
-brew cask install emacs-mac
+# brew tap railwaycat/emacsmacport
+# brew install --cask emacs-mac
+brew install --cask emacs
 brew install gnutls
 brew install gnupg2 --with-gnupg21
 
@@ -28,7 +29,7 @@ brew install scala
 brew install sbt
 
 # Big one ...
-brew cask install mactex
+brew install --cask mactex
 
 # Remove outdated versions from the cellar.
 brew cleanup
