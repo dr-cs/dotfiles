@@ -31,7 +31,7 @@
 (show-paren-mode 1)
 (delete-selection-mode 1)
 (transient-mark-mode 1)
-;;(setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
+(setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
