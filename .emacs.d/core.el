@@ -11,8 +11,8 @@
         ("melpa" . 2)
         ("nongnu" . 1)))
 
-;; If there are no archived package contents, refresh them
-(when (not package-archive-contents)
+(package-initialize)
+(unless package-archive-contents
   (package-refresh-contents))
 
 (setq use-package-always-ensure t)

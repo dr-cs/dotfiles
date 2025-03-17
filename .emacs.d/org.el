@@ -28,6 +28,11 @@
 
 (require 'ox-latex)
 
+;; https://github.com/jkitchin/ox-ipynb
+;; TODO: this fails on ox-ipynb.el:78 -- (require 's).  Must be something in John Kitchin's personal setup.
+;; (add-to-list 'load-path "~/vcs/github.com/dr-cs/ox-ipynb")
+;; (require 'ox-ipynb)
+
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 

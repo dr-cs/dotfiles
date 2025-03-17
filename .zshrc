@@ -62,7 +62,7 @@ export LESS="-Xr"
 # https://direnv.net/docs/hook.html
 eval "$(direnv hook zsh)"
 
-;; https://github.com/akermu/emacs-libvterm?tab=readme-ov-file#shell-side-configuration
+# https://github.com/akermu/emacs-libvterm?tab=readme-ov-file#shell-side-configuration
 vterm_printf() {
     if [ -n "$TMUX" ] \
         && { [ "${TERM%%-*}" = "tmux" ] \

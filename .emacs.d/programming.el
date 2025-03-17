@@ -53,8 +53,10 @@
   :bind (:map python-ts-mode-map
               ("<f5>" . recompile)
               ("<f6>" . eglot-format))
+  :config
+  (setq python-shell-interpreter "ipython"
+        python-shell-interpreter-args "-i --simple-prompt")
   :hook
   ((python-ts-mode . eglot-ensure)
    (python-ts-mode . flymake-mode))
-  :mode (("\\.py\\'" . python-ts-mode))
-)
+  :mode (("\\.py\\'" . python-ts-mode)))
