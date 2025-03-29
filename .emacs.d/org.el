@@ -5,9 +5,26 @@
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
 
+(add-hook 'org-mode-hook #'flyspell-mode)
 
 (setq-default org-support-shift-select 1)
 (setq org-descriptive-links nil)
+
+;; From https://zzamboni.org/post/beautifying-org-mode-in-emacs/
+(custom-theme-set-faces
+   'user
+   '(org-block ((t (:inherit fixed-pitch))))
+   '(org-code ((t (:inherit (shadow fixed-pitch)))))
+   ;; '(org-document-info ((t (:foreground "dark orange"))))
+   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+   '(org-link ((t (:foreground "royal blue" :underline t))))
+   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-property-value ((t (:inherit fixed-pitch))) t)
+   '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-table ((t (:inherit fixed-pitch))))
+   '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+   '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
 
 (setq org-directory "~/Documents/org")
@@ -21,6 +38,8 @@
      '((dot . t)
        (python . t)
        (ditaa . t)))
+
+(setq org-edit-src-content-indentation 0)
 
 (plist-put org-format-latex-options :background "Transparent")
 (plist-put org-format-latex-options :scale 2.0)
