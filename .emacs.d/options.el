@@ -14,8 +14,8 @@
 (setq modus-themes-mixed-fonts t)
 (setq ef-themes-mixed-fonts t)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-(add-hook 'text-mode-hook #'variable-pitch-mode)
-
+(add-hook 'org-mode-hook #'variable-pitch-mode)
+(add-hook 'markdown-mode-hook #'variable-pitch-mode)
 
 (setq-default visible-bell 1)
 (setq-default indent-tabs-mode nil)
@@ -67,20 +67,23 @@
 
 ;; Got this idea from
 ;; https://protesilaos.com/codelog/2024-02-08-emacs-window-rules-display-buffer-alist/
-(setq display-buffers-alist
+(setq display-buffer-alist
       ;; For pop-up info buffers like *Help*, *Warnings*, *Messages*,
       ;; etc., place window below, dedicate window to buffer so don't
       ;; accidentally open a new buffer in it, focus it so it can be
       ;; easily dismissed.
       '(
-        ("\\*eldoc\\*"
+        ("\\*.+\\*"
          ;; List of display functions
          (display-buffer-reuse-mode-window display-buffer-below-selected)
          ;; Parameters
-         (window-height . fit-window-to-buffer)
+         ;; (window-height . fit-window-to-buffer)
          (dedicated . t)
-         (body-function . (lambda (window) (select-window window))))))
+         (body-function . (lambda (window) (select-window window)))))
+)
 
 (global-display-line-numbers-mode 1)
+(setq display-line-numbers-width-start t)
+(setq display-line-numbers-grow-only t)
 ;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (add-hook 'text-mode-hook #'display-line-numbers-mode)
