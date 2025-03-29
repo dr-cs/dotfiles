@@ -12,7 +12,8 @@
     (add-hook 'vterm-mode-hook
           (lambda ()
                (set (make-local-variable 'buffer-face-mode-face) '(:family "MesloLGS NF"))
-               (buffer-face-mode t))))
+               (buffer-face-mode t)))
+    (add-to-list 'vterm-eval-cmds '("update-pwd" (lambda (path) (setq default-directory path)))))
 
 ;; https://github.com/purcell/envrc
 (use-package envrc

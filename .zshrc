@@ -80,5 +80,10 @@ vterm_printf() {
 vterm_prompt_end() {
     vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
 }
+
+vterm_set_directory() {
+    vterm_cmd update-pwd "$PWD/"
+}
+
 setopt PROMPT_SUBST
 PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
