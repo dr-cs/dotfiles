@@ -207,9 +207,9 @@
 
   :config
   ;; Enable auto completion and configure quitting
-  (setq corfu-auto t
+  (setq corfu-auto nil
         corfu-quit-no-match 'separator
-        corfu-auto-delay 0.5
+        corfu-auto-delay 1
         corfu-auto-prefix 1)
 
   ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
@@ -285,3 +285,8 @@
   :hook
   (prog-mode . git-gutter-mode)
   (text--mode . git-gutter-mode))
+
+(use-package zoom
+  :config
+  (custom-set-variables
+   '(zoom-size '(0.618 . 0.618))))
