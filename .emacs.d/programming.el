@@ -66,7 +66,7 @@
 
 ;; to integrate yasnippet-capf with eglot completion
 ;; https://github.com/minad/corfu/wiki#making-a-cape-super-capf-for-eglot
-(defun my/eglot-capf-with-yasnippet
+(defun my/eglot-capf-with-yasnippet ()
     (setq-local completion-at-point-functions
                 (list
 	             (cape-capf-super
