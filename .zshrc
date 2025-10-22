@@ -21,8 +21,6 @@ antigen bundle git
 antigen bundle kubectl
 antigen bundle helm
 antigen bundle docker
-antigen bundle tmux
-antigen bundle tmuxinator
 # Other bundles
 antigen bundle sdkman/sdkman-cli zsh
 # Syntax highlighting bundle.
