@@ -55,12 +55,14 @@ After doing the platform-specific installations and customizations above, do the
 
 1. Run `bash install-general.sh`
 2. Run `bash link-dotfiles.sh`
-3. Install the [Nerd Fonts](https://github.com/romkatv/powerlevel10k#fonts) required by the Powerlevel10k zsh theme and configure (Windows) Terminal to use `MesloLGS NF` by adding these lines to your Windows Terminal configuration under `default` if you want to use this font in all terminals, or only under the Ubuntu profile is you only want to use this font in your Ubuntu terminal:
+3. Install the [Nerd Fonts](https://github.com/romkatv/powerlevel10k#fonts) required by the Powerlevel10k zsh theme and configure your terminal to use `MesloLGS NF`
+
+    For Windows Terminal you can do this by adding these lines to your Windows Terminal configuration under `default` if you want to use this font in all terminals, or only under the Ubuntu profile if you only want to use this font in your Ubuntu terminal:
 
 
-```json
-"fontFace": "MesloLGS NF"
-```
+    ```json
+    "fontFace": "MesloLGS NF"
+    ```
 
 4. Make `zsh` your default shell by running these commands
 
@@ -70,7 +72,9 @@ WIP -- should reorganize, maybe change scripts.
 ZSH=$(command -v zsh)
 echo $ZSH
 chsh -s $ZSH
-exportSHELL=$ZSH
+export SHELL=$ZSH
 ```
 
-After restarting terminal, run `zsh`.
+5. Restart your terminal.
+
+6. Run `p10k configure`.  It's fine to let it overwrite `.p10k.zsh`.
