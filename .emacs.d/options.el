@@ -4,13 +4,13 @@
 (load-theme 'modus-vivendi-tinted)
 (set-face-attribute 'default nil
                     :family "Hack"
-                    :height 180)
+                    :height 160)
 (set-face-attribute 'variable-pitch nil
                     :family "Verdana"
-                    :height 180)
+                    :height 160)
 (set-face-attribute 'fixed-pitch nil
                     :family "Hack"
-                    :height 180)
+                    :height 160)
 (setq modus-themes-mixed-fonts t)
 (setq ef-themes-mixed-fonts t)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -61,10 +61,10 @@
 
 ;; Wider than 80 for general editing, e.g., org-mode tables. Use
 ;; fill-column-indicator for programming modes
-(add-to-list 'initial-frame-alist '(width . 100))
-(add-to-list 'default-frame-alist '(width . 100))
-(add-to-list 'initial-frame-alist '(height . 70))
-(add-to-list 'default-frame-alist '(height . 70))
+(add-to-list 'initial-frame-alist '(width . 110))
+(add-to-list 'default-frame-alist '(width . 110))
+(add-to-list 'initial-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(height . 80))
 
 ;; Got this idea from
 ;; https://protesilaos.com/codelog/2024-02-08-emacs-window-rules-display-buffer-alist/
