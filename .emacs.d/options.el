@@ -4,13 +4,13 @@
 (load-theme 'modus-vivendi-tinted)
 (set-face-attribute 'default nil
                     :family "Hack"
-                    :height 220)
+                    :height 180)
 (set-face-attribute 'variable-pitch nil
                     :family "Verdana"
-                    :height 220)
+                    :height 180)
 (set-face-attribute 'fixed-pitch nil
                     :family "Hack"
-                    :height 220)
+                    :height 180)
 (setq modus-themes-mixed-fonts t)
 (setq ef-themes-mixed-fonts t)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -21,7 +21,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default show-paren-mode 1)
-(if window-system (tool-bar-mode 0))
+(tool-bar-mode 0)
 (if (boundp 'aquamacs-version) (tabbar-mode 0))
 (set-scroll-bar-mode 'right)
 
