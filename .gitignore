@@ -259,3 +259,5 @@ fabric.properties
 .emacs.d/bookmarks
 .emacs.d/.mc-lists.el
 .emacs.d/custom.el
+.emacs.d/eln-cache
+.emacs.d/session.*
