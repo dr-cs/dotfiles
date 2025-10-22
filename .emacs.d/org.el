@@ -99,8 +99,7 @@
      'org-babel-load-languages
      '((dot . t)
        (python . t)
-       (ditaa . t)
-       (jupyter . t)))
+       (ditaa . t)))
 
 (setq org-edit-src-content-indentation 0
       org-yank-folded-subtrees 0)
