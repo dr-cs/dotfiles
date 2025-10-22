@@ -4,18 +4,18 @@
 (load-theme 'modus-vivendi-tinted)
 (set-face-attribute 'default nil
                     :family "Hack"
-                    :height 160)
+                    :height 220)
 (set-face-attribute 'variable-pitch nil
-                    :family "Helvetica"
-                    :height 180)
+                    :family "Verdana"
+                    :height 220)
 (set-face-attribute 'fixed-pitch nil
                     :family "Hack"
-                    :height 160)
+                    :height 220)
 (setq modus-themes-mixed-fonts t)
 (setq ef-themes-mixed-fonts t)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-(add-hook 'org-mode-hook #'variable-pitch-mode)
-(add-hook 'markdown-mode-hook #'variable-pitch-mode)
+;; (add-hook 'org-mode-hook #'variable-pitch-mode)
+;; (add-hook 'markdown-mode-hook #'variable-pitch-mode)
 
 (setq-default visible-bell 1)
 (setq-default indent-tabs-mode nil)
@@ -35,6 +35,7 @@
 (transient-mark-mode 1)
 (setq-default ispell-program-name (chomp (shell-command-to-string "which ispell")))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(auto-save-mode 1)
 
 (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
 
@@ -60,8 +61,8 @@
 
 ;; Wider than 80 for general editing, e.g., org-mode tables. Use
 ;; fill-column-indicator for programming modes
-(add-to-list 'initial-frame-alist '(width . 150))
-(add-to-list 'default-frame-alist '(width . 150))
+(add-to-list 'initial-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(width . 100))
 (add-to-list 'initial-frame-alist '(height . 70))
 (add-to-list 'default-frame-alist '(height . 70))
 
