@@ -61,8 +61,10 @@
   :after yasnippet
   :config (yasnippet-snippets-initialize))
 
-;; to enable yasnippet-capf everywhere (optional)
-(add-to-list 'completion-at-point-functions #'yasnippet-capf)
+(use-package yasnippet-capf
+  :after cape
+  :config
+  (add-to-list 'completion-at-point-functions #'yasnippet-capf))
 
 ;; to integrate yasnippet-capf with eglot completion
 ;; https://github.com/minad/corfu/wiki#making-a-cape-super-capf-for-eglot
