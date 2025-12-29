@@ -61,13 +61,13 @@
   ;; ;; Change default prefix key; needs to be set before loading org-journal
   ;; (setq org-journal-prefix-key "C-c j")
   :config
-  (setq org-journal-file-type 'daily
+  (setq org-journal-file-type 'monthly
         org-journal-start-on-weekday 0
         org-extend-today-until 0 ;; the default
         org-journal-find-file #'find-file
         org-journal-dir (concat org-directory "/journal/")
         org-journal-date-format "%Y-%m-%d %a"
-        org-journal-file-format "%Y-%m-%d.org")
+        org-journal-file-format "%Y-%m-journal.org")
   :bind
   ("C-c C-j" . org-journal-new-entry))
 
