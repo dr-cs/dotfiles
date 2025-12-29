@@ -61,25 +61,18 @@
   :after yasnippet
   :config (yasnippet-snippets-initialize))
 
-(use-package yasnippet-capf
-  :after cape
-  :config
-  (add-to-list 'completion-at-point-functions #'yasnippet-capf))
-
-;; to integrate yasnippet-capf with eglot completion
-;; https://github.com/minad/corfu/wiki#making-a-cape-super-capf-for-eglot
-(defun my/eglot-capf-with-yasnippet ()
-    (setq-local completion-at-point-functions
-                (list
-	             (cape-capf-super
-		          #'eglot-completion-at-point
-		          #'yasnippet-capf))))
-(with-eval-after-load 'eglot
-  (add-hook 'eglot-managed-mode-hook #'my/eglot-capf-with-yasnippet))
-
-
 (setq eldoc-echo-area-prefer-doc-buffer t
       eldoc-echo-area-use-multiline-p nil)
+
+;; FUCK TREE-SITTER!!!!!
+;; The ONLY sane way to use tree-sitter
+;; https://github.com/renzmann/treesit-auto
+;; (use-package treesit-auto
+;;   :custom
+;;   (treesit-auto-install 'prompt)
+;;   :config
+;;   (treesit-auto-add-to-auto-mode-alist 'all)
+;;   (global-treesit-auto-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python
@@ -96,7 +89,7 @@
 
 (use-package python
   :ensure t
-  :bind (:map python-ts-mode-map
+  :bind (:map python-mode-map
               ("<f5>" . recompile)
               ("<f6>" . eglot-format))
   :config
@@ -106,13 +99,13 @@
   ;; https://docs.zubanls.com/en/latest/installation.html
   (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
-                 '(python-mode . ("zuban" "server"))))
+                 '(python-mode . ("pylsp"))))
   ;; Add following line to with-eval-after-load
   ;;   (add-hook 'after-save-hook 'eglot-format))
   :hook
-  ((python-ts-mode . eglot-ensure)
-   (python-ts-mode . flymake-mode))
-  :mode (("\\.py\\'" . python-ts-mode)))
+  ((python-mode . eglot-ensure)
+   (python-mode . flymake-mode))
+  :mode (("\\.py\\'" . python-mode)))
 
 
 (use-package jupyter)
