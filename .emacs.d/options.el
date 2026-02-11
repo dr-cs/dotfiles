@@ -51,6 +51,7 @@
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
+(set-language-environment "UTF-8")
 
 ;; From http://www.emacswiki.org/emacs/SmoothScrolling
 ;; Scroll one line at a time (less "jumpy" than defaults)
@@ -59,12 +60,15 @@
 (setq-default mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq-default scroll-step 1) ;; keyboard scroll one line at a time
 
+;; Prevent mouse-1 from opening links in Markdown and org buffers
+(setq-default mouse-1-click-follows-link nil)
+
 ;; Wider than 80 for general editing, e.g., org-mode tables. Use
 ;; fill-column-indicator for programming modes
-(add-to-list 'initial-frame-alist '(width . 110))
-(add-to-list 'default-frame-alist '(width . 110))
-(add-to-list 'initial-frame-alist '(height . 80))
-(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'initial-frame-alist '(width . 120))
+(add-to-list 'default-frame-alist '(width . 120))
+(add-to-list 'initial-frame-alist '(height .200))
+(add-to-list 'default-frame-alist '(height . 200))
 
 ;; Got this idea from
 ;; https://protesilaos.com/codelog/2024-02-08-emacs-window-rules-display-buffer-alist/
