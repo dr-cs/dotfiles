@@ -67,8 +67,8 @@
 ;; fill-column-indicator for programming modes
 (add-to-list 'initial-frame-alist '(width . 120))
 (add-to-list 'default-frame-alist '(width . 120))
-(add-to-list 'initial-frame-alist '(height .200))
-(add-to-list 'default-frame-alist '(height . 200))
+(add-to-list 'initial-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(height . 80))
 
 ;; Got this idea from
 ;; https://protesilaos.com/codelog/2024-02-08-emacs-window-rules-display-buffer-alist/
