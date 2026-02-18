@@ -65,6 +65,9 @@
       eldoc-echo-area-use-multiline-p nil)
 
 ;; FUCK TREE-SITTER!!!!!
+;; Thought the Emacs 30.2-1 build would fix it.  It did not.
+;; FUCK TREE-SITTER!!!!!!!!!!!!!!!!!!!!!!!!!!
+;; Previously:
 ;; The ONLY sane way to use tree-sitter
 ;; https://github.com/renzmann/treesit-auto
 ;; (use-package treesit-auto
@@ -93,10 +96,9 @@
               ("<f5>" . recompile)
               ("<f6>" . eglot-format))
   :config
-  (setq python-shell-interpreter "ipython"
-        python-shell-interpreter-args "-i --simple-prompt")
-  (add-hook 'python-mode-hook 'eglot-ensure)
-  ;; https://docs.zubanls.com/en/latest/installation.html
+  ;; (setq python-shell-interpreter "ipython"
+  ;;       python-shell-interpreter-args "-i --simple-prompt")
+  ;; (add-hook 'python-mode-hook 'eglot-ensure)
   (with-eval-after-load 'eglot
     (add-to-list 'eglot-server-programs
                  '(python-mode . ("pylsp"))))
