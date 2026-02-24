@@ -5,15 +5,16 @@
 (set-face-attribute 'default nil
                     :family "Hack"
                     :height 160)
-(set-face-attribute 'variable-pitch nil
-                    :family "Verdana"
-                    :height 160)
-(set-face-attribute 'fixed-pitch nil
-                    :family "Hack"
-                    :height 160)
-(setq modus-themes-mixed-fonts t)
+;; (set-face-attribute 'variable-pitch nil
+;;                     :family "Hack"
+;;                     :height 160)
+;; (set-face-attribute 'fixed-pitch nil
+;;                     :family "Hack"
+;;                     :height 160)
+;; (setq modus-themes-mixed-fonts t)
 (setq ef-themes-mixed-fonts t)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(setq-default variable-pitch-mode nil)
 ;; (add-hook 'org-mode-hook #'variable-pitch-mode)
 ;; (add-hook 'markdown-mode-hook #'variable-pitch-mode)
 
