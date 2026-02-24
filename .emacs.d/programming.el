@@ -110,7 +110,7 @@
   :mode (("\\.py\\'" . python-mode)))
 
 
-(use-package jupyter)
+;; (use-package jupyter)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SQL
