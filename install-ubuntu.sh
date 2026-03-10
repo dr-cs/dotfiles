@@ -5,6 +5,9 @@ apt -y upgrade
 apt -y dist-upgrade
 
 # Basic utilities
+apt -y install git
+apt -y install curl
+apt -y install direnv
 apt -y install imagemagick
 apt -y install tree
 apt -y install webkit2png
@@ -14,6 +17,7 @@ apt -y install ispell
 apt -y install exfat-utils
 apt -y install zsh
 apt -y install keychain
+apt -y install fonts-powerline
 apt -y install texlive-full
 
 # Clean up
