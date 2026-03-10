@@ -49,9 +49,31 @@ Now you have WSL installed.  In a WSL terminal window, proceed with the Ubuntu s
 4. `sudo bash install-ubuntu.sh`
 5. On Ubuntu, but not WSL: `bash customize-ubuntu.sh`
 
+### Notes
+
+On Ubuntu, if a directory that you have allowed with `direnv allow .` contains a `.envrc` that activates a Python venv but a venv has not yet been created (like with a freshly cloned repo that contains a `.envrc`), then direnv will create and active a venv that simply symlinks to system `python`.  That means when you try to `pip install` packages in that venv, you'll get an error message from Ubuntu, `error: externally-managed-environment` saying that you're trying to install packages for system-wide python.  If this happens, here's one way to fix it:
+
+``` sh
+direnv disallow .
+cd ..
+# cd back into project directory.
+# After disallowing direnv it won't create and activate a symlink venv.
+python3 -m venv venv
+direnv allow .
+```
+
 ## General
 
 After doing the platform-specific installations and customizations above, do the following.
+
+1. Install [Hack](https://github.com/source-foundry/Hack) fonts.  On Linux:
+
+``` sh
+wget https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip
+unzip Hack-v3.003-ttf.zip -d ~/.fonts
+fc-cache -f -v
+```
+
 
 1. Run `bash install-general.sh`
 2. Run `bash link-dotfiles.sh`
