@@ -39,7 +39,7 @@
               ("C-c r" . eglot-rename))
   :config
   (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
-  (setq eldoc-box-max-pixel-width (* .33 (frame-inner-width))
+  (setq eldoc-box-max-pixel-width (* .33 (frame-inner-width)))
   ;; (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-at-point-mode t)
 )
 
