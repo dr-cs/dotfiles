@@ -93,4 +93,5 @@
 (setq display-line-numbers-grow-only t)
 ;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 ;; (add-hook 'text-mode-hook #'display-line-numbers-mode)
-(setq dired-listing-switches "-lXGh --group-directories-first")
+
+;; (setq dired-listing-switches "-la --group-directories-first")
