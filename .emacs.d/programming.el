@@ -29,12 +29,19 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
+(use-package eldoc-box)
+
 (use-package eglot
   :bind (:map eglot-mode-map
               ("C-c h" . eldoc)
               ("C-c o" . eglot-code-action-organize-imports)
               ("C-c f" . flymake-show-buffer-diagnostics)
-              ("C-c r" . eglot-rename)))
+              ("C-c r" . eglot-rename))
+  :config
+  (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
+  (setq eldoc-box-max-pixel-width (* .33 (frame-inner-width))
+  ;; (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-at-point-mode t)
+)
 
 ;; Adapted from https://www.reddit.com/r/emacs/comments/1923cz8/eglot_unsuported_or_ignored_lsp_capability/
 ;; (use-package eglot
