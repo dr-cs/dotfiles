@@ -31,10 +31,10 @@ autoload -U +X bashcompinit && bashcompinit
 # Start ssh-agent on Linux so I don't have to re-enter my pass phrase
 # Thanks to https://esc.sh/blog/ssh-agent-windows10-wsl2/
 
-if [[ `uname` == "Linux" ]]; then
-  /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
-  source $HOME/.keychain/$(hostname)-sh
-fi
+# if [[ `uname` == "Linux" ]]; then
+#   /usr/bin/keychain -q --nogui $HOME/.ssh/id_ed25519
+#   source $HOME/.keychain/$(hostname)-sh
+# fi
 
 export PATH="$PATH:$HOME/go/bin"
 export LESS="-Xr"
