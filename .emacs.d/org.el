@@ -39,16 +39,29 @@
 (setq org-directory "~/Dropbox/org")
 (if (file-directory-p org-directory) nil
       (make-directory org-directory))
+
+(setq tasks-file (concat org-directory "/tasks.org"))
+(setq notes-file (concat org-directory "/notes.org"))
+
+(defun create-if-not-exists (file-name)
+  (if (file-exists-p file-name) nil
+    (write-region "" "" file-name nil)))
+
+(dolist (f (list tasks-file notes-file))
+  (create-if-not-exists f))
+
 (setq org-agenda-files (directory-files-recursively org-directory "org$"))
+
+(setq org-default-notes-file notes-file)
 
 (setq org-cite-global-bibliography '("~/Dropbox/bibtex-db/references.bib"))
 ;;(setq org-cite-insert-processor 'citar)
 
 ;; https://orgmode.org/org.html#Capture-and-Attachments
 (setq org-capture-templates
-      '(("t" "To do" entry (file+headline "~/Documents/org/tasks.org" "Tasks")
+      '(("t" "To do" entry (file+headline tasks-file "Tasks")
          "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree "~/Documents/org/journal.org")
+        ("n" "Note" entry (file+datetree notes-file)
          "* %?\nEntered on %U\n  %i\n  %a")))
 
 (setq org-todo-keywords
