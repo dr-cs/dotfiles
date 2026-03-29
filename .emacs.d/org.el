@@ -36,7 +36,7 @@
 ;;    '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
 
-(setq org-directory "~/Documents/org")
+(setq org-directory "~/Dropbox/org")
 (if (file-directory-p org-directory) nil
       (make-directory org-directory))
 (setq org-agenda-files (directory-files-recursively org-directory "org$"))
