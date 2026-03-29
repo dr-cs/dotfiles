@@ -1,5 +1,47 @@
 #!/usr/bin/env bash
 
+if [ -f requirements.txt ]
+then
+    echo "Found a requirements.txt file.  Proceeding ..."
+    if [ $(grep --count "^pylsp"  requirements.txt) == "0" ]
+    then
+       echo "requirements.txt does not include pylsp.  Adding ..."
+       echo "pyls-memestra" >> requirements.txt
+       echo "pylsp-mypy" >> requirements.txt
+       echo "pylsp-rope" >> requirements.txt
+       echo "python-lsp-black" >> requirements.txt
+       echo "python-lsp-isort" >> requirements.txt
+       echo "python-lsp-ruff" >> requirements.txt
+       echo "python-lsp-server[all]" >> requirements.txt
+    fi
+else
+    echo "No requirements.txt file.  Creating a minimal requirements.txt file containing:"
+    echo "ipython"
+    echo "matplotlib"
+    echo "numpy"
+    echo "pandas"
+    echo "pyls-memestra"
+    echo "pylsp-mypy"
+    echo "pylsp-rope"
+    echo "python-lsp-black"
+    echo "python-lsp-isort"
+    echo "python-lsp-ruff"
+    echo "python-lsp-server[all]"
+
+    echo "ipython" > requirements.txt
+    echo "matplotlib" >> requirements.txt
+    echo "numpy" >> requirements.txt
+    echo "pandas" >> requirements.txt
+    echo "pyls-memestra" >> requirements.txt
+    echo "pylsp-mypy" >> requirements.txt
+    echo "pylsp-rope" >> requirements.txt
+    echo "python-lsp-black" >> requirements.txt
+    echo "python-lsp-isort" >> requirements.txt
+    echo "python-lsp-ruff" >> requirements.txt
+    echo "python-lsp-server[all]" >> requirements.txt
+fi
+
+
 if [ -z "$1" ]
 then
     venv_dir="venv"
@@ -19,6 +61,7 @@ fi
 venv_active=$(python3 -c "import sys; print(sys.prefix != sys.base_prefix, file=sys.stdout)")
 if [ $venv_active == "True" ]
 then
+    echo "venv active.  Deactivating ..."
     deactivate
 fi
 if [ -f $venv_dir ]
