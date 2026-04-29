@@ -11,6 +11,10 @@
 (setq org-descriptive-links nil)
 (setq org-startup-folded nil)
 
+(setq org-image-actual-width nil)
+(setq org-image-max-width 'fill-column)
+(setq org-image-align 'center)
+
 ;; From https://github.com/syl20bnr/spacemacs/issues/13255#issuecomment-592998372
 ;; src block indentation / editing / syntax highlighting
 (setq org-src-fontify-natively t
@@ -131,6 +135,31 @@
 (unless (boundp 'org-latex-classes)
   (setq org-latex-classes nil))
 
+;; From https://kennyballou.com/blog/2025/08/tagged-pdfs-org-export/index.html
+;; Metadata from https://www.reddit.com/r/Professors/comments/1rg7mke/latex_and_the_ada_accessibility_requirements_a/
+(defvar org-latex-metadata
+  ""
+  "LaTeX preamble metadata, file data to appear _before_ DOCUMENTCLASS...")
+(setq org-latex-metadata "\\DocumentMetadata{lang = en-US,pdfversion = 2.0,pdfstandard = ua-2,tagging = on,tagging-setup = {math/setup=mathml-SE},}")
+
+
+(setq org-latex-classes
+      `(("beamer" "\\documentclass[11pt]{beamer}"
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+        ("article" ,(concat org-latex-metadata "\n" "\\documentclass[11pt]{article}")
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
+(setq org-latex-pdf-process
+      '("latexmk -f -pdf -%latex -interaction=nonstopmode -shell-escape -output-directory=%o %f"))
+
+;; End tagged PDFs config
+
 (add-to-list 'org-latex-classes
              '("exam"
                "\\documentclass{exam}"
@@ -147,6 +176,8 @@
                 "\\begin{parts} %s"
                 "\\end{parts}")))
 
+
 (setq org-latex-listings t)
 (setq org-confirm-babel-evaluate nil)
 (setq org-hierarchical-todo-statistics nil)
+(setq org-export-with-broken-links t)

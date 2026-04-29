@@ -24,4 +24,4 @@ current_ceiling=$(cat /sys/class/power_supply/BAT0/charge_control_end_threshold)
 current_limit=$((current_ceiling-1))
 echo "Current battery charging limit: $current_limit% (ceiling of $current_ceiling)."
 echo "Limiting battery charging to $limit% (ceiling of $ceiling)."
-echo $ceiling > /sys/class/power_supply/BAT0/charge_control_end_threshold
+echo "$ceiling" > /sys/class/power_supply/BAT0/charge_control_end_threshold
