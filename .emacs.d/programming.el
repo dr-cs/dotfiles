@@ -29,16 +29,18 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package eldoc-box)
+;; (use-package eldoc-box)
 
 (use-package eglot
   :bind (:map eglot-mode-map
+              ("C-c d" . flymake-show-buffer-diagnostics)
+              ("C-c f" . eglot-format)
               ("C-c h" . eldoc)
               ("C-c o" . eglot-code-action-organize-imports)
-              ("C-c f" . flymake-show-buffer-diagnostics)
-              ("C-c r" . eglot-rename))
+              ("C-c r" . eglot-rename)
+              ("C-c q" . eglot-code-action-quickfix))
   :config
-  (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
+  ;; (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-mode t)
   ;; (setq eldoc-box-max-pixel-width (* .33 (frame-inner-width)))
   ;; (add-hook 'eglot-managed-mode-hook #'eldoc-box-hover-at-point-mode t)
 )
@@ -58,6 +60,13 @@
 ;; 	      ("D" . eglot-find-declaration)
 ;; 	      ("i" . eglot-find-implementation)))
 
+;; Show the current buffer's imenu entries in a separate buffer
+(use-package imenu-list
+  :ensure t
+  :config
+  (setq imenu-list-focus-after-activation t)
+  (global-set-key (kbd "C-.") #'imenu-list-minor-mode)
+)
 
 (use-package yasnippet
   :defer 1
@@ -70,6 +79,11 @@
 
 (setq eldoc-echo-area-prefer-doc-buffer t
       eldoc-echo-area-use-multiline-p nil)
+
+(use-package emmet-mode
+  :hook
+  (emmet-mode . sgml-mode-hook)
+  (emmet-mode . css-mode-hook))
 
 ;; FUCK TREE-SITTER!!!!!
 ;; Thought the Emacs 30.2-1 build would fix it.  It did not.
@@ -118,6 +132,28 @@
 
 
 ;; (use-package jupyter)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; C++
+
+;; Much inspired by https://olddeuteronomy.github.io/post/cpp-programming-in-emacs/
+
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c-or-c++-mode-hook 'eglot-ensure)
+(add-hook 'c-or-c++-mode-hook 'electric-pair-mode)
+
+;; .h files to open in c++-mode rather than c-mode.
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+
+(setq c-default-style "stroustrup")
+(setq c-basic-indent 4)
+(setq c-basic-offset 4)
+
+;; emacs-fu: don’t indent inside of C++ namespaces
+;; http://brrian.tumblr.com/post/9018043954/emacs-fu-dont-indent-inside-of-c-namespaces
+(c-set-offset 'innamespace 0)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SQL

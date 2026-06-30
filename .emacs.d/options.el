@@ -38,7 +38,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (auto-save-mode 1)
 
-(when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
+;; (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
 
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
